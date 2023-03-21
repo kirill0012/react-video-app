@@ -10,7 +10,6 @@
 
 # next.js
 /.next/
-/_next/
 /out/
 
 # production
@@ -34,10 +33,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-###> IDE ###
-*.sublime-project
-*.sublime-workspace
-.idea
-nbproject/
-###< IDE ###
+next-env.d.ts
