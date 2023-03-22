@@ -11,6 +11,8 @@ import UserLayout from '@/layouts/UserLayout'
 
 import '@/styles/globals.css'
 
+import { AuthProvider } from '@/context/AuthContext'
+
 const clientSideEmotionCache = createEmotionCache();
 
 // ** Extend App Props with Emotion
@@ -27,11 +29,13 @@ export default function App({
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </CacheProvider>
+    <AuthProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </CacheProvider>
+    </AuthProvider>
   );
 }

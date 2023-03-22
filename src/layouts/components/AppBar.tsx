@@ -21,21 +21,13 @@ const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme }) => ({
   backgroundColor: 'transparent',
   color: theme.palette.text.primary,
   minHeight: theme.mixins.toolbar.minHeight,
-  [theme.breakpoints.up('sm')]: {
-    paddingLeft: theme.spacing(6),
-    paddingRight: theme.spacing(6)
-  },
-  [theme.breakpoints.down('sm')]: {
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(4)
-  }
 }))
 
 const Toolbar = styled(MuiToolbar)<ToolbarProps>(({ theme }) => ({
   width: '100%',
   borderRadius: 8,
   marginTop: theme.spacing(3),
-  padding: `${theme.spacing(0, 6)} !important`
+  padding: `0px 10px !important`
 }))
 
 const LayoutAppBar = (props: Props) => {
@@ -62,9 +54,10 @@ const LayoutAppBar = (props: Props) => {
         className='navbar-content-container'
         sx={{
           minHeight: theme => `${theme.mixins.toolbar.minHeight as number}px !important`,
-          backgroundColor: theme => hexToRGBA(theme.palette.background.paper, 1),
+          backgroundColor: theme => hexToRGBA(theme.palette.background.default, 1),
           boxShadow: 6,
-          '@media (min-width:1440px)': { maxWidth: theme => `calc(1440px - ${theme.spacing(6 * 2)})` }
+          //'@media (min-width:1440px)': { maxWidth: theme => `calc(1440px - ${theme.spacing(6 * 2)})` }
+          maxWidth: '1080px'
         }}
       >
         {(userAppBarContent && userAppBarContent(props)) || null}

@@ -39,12 +39,8 @@ const AppBarBgBlur = styled(Box)<BoxProps>({
 const ContentWrapper = styled("main")(({ theme }) => ({
   flexGrow: 1,
   width: "100%",
-  padding: theme.spacing(6),
+  padding: "10px",
   transition: "padding .25s ease-in-out",
-  [theme.breakpoints.down("sm")]: {
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(4),
-  },
 }));
 
 const UserLayout = (props: Props) => {
@@ -75,8 +71,7 @@ const UserLayout = (props: Props) => {
           className="layout-page-content"
           sx={{
               mx: "auto",
-              "@media (min-width:1440px)": { maxWidth: 1440 },
-              "@media (min-width:1200px)": { maxWidth: "100%" },
+              maxWidth: '1080px'
           }}
         >
           {children}
