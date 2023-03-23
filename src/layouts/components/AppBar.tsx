@@ -27,7 +27,7 @@ const Toolbar = styled(MuiToolbar)<ToolbarProps>(({ theme }) => ({
   width: '100%',
   borderRadius: 8,
   marginTop: theme.spacing(3),
-  padding: `0px 10px !important`
+  padding: `0px 10px !important`,
 }))
 
 const LayoutAppBar = (props: Props) => {
@@ -44,20 +44,20 @@ const LayoutAppBar = (props: Props) => {
   return (
     <AppBar
       elevation={0}
-      color='default'
-      className='layout-navbar'
+      color="default"
+      className="layout-navbar"
       sx={{ ...userAppBarStyle }}
       position={'static'}
       {...userAppBarProps}
     >
       <Toolbar
-        className='navbar-content-container'
+        className="navbar-content-container"
         sx={{
-          minHeight: theme => `${theme.mixins.toolbar.minHeight as number}px !important`,
-          backgroundColor: theme => hexToRGBA(theme.palette.background.default, 1),
+          minHeight: (theme) => `${theme.mixins.toolbar.minHeight as number}px !important`,
+          backgroundColor: (theme) => hexToRGBA(theme.palette.background.default, 1),
           boxShadow: 6,
           //'@media (min-width:1440px)': { maxWidth: theme => `calc(1440px - ${theme.spacing(6 * 2)})` }
-          maxWidth: '1080px'
+          maxWidth: '1080px',
         }}
       >
         {(userAppBarContent && userAppBarContent(props)) || null}

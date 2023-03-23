@@ -19,19 +19,16 @@ import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew'
 // ** Context
 import { useAuth } from '@/hooks/useAuth'
 
-interface Props {
-}
-
 // ** Styled Components
 const BadgeContentSpan = styled('span')(({ theme }) => ({
   width: 8,
   height: 8,
   borderRadius: '50%',
   backgroundColor: theme.palette.success.main,
-  boxShadow: `0 0 0 2px ${theme.palette.background.paper}`
+  boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
 }))
 
-const UserDropdown = (props: Props) => {
+const UserDropdown = () => {
   // ** States
   const [anchorEl, setAnchorEl] = useState<Element | null>(null)
 
@@ -61,8 +58,8 @@ const UserDropdown = (props: Props) => {
     '& svg': {
       mr: 2,
       fontSize: '1.25rem',
-      color: 'text.secondary'
-    }
+      color: 'text.secondary',
+    },
   }
 
   const handleLogout = () => {
@@ -72,17 +69,15 @@ const UserDropdown = (props: Props) => {
 
   return (
     <Fragment>
-      <Typography sx={{ fontWeight: '500'}}>
-        {user?.name}
-      </Typography>
+      <Typography sx={{ fontWeight: '500' }}>{user?.name}</Typography>
       <Badge
-        overlap='circular'
+        overlap="circular"
         onClick={handleDropdownOpen}
-        sx={{ ml: "8px", cursor: 'pointer' }}
+        sx={{ ml: '8px', cursor: 'pointer' }}
         badgeContent={<BadgeContentSpan />}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'right'
+          horizontal: 'right',
         }}
       >
         <Avatar
@@ -90,7 +85,6 @@ const UserDropdown = (props: Props) => {
           alt={user?.name}
           onClick={handleDropdownOpen}
           sx={{ width: 40, height: 40, bgcolor: deepPurple[500], color: 'white' }}
-          
         >
           {user?.name
             .split(/\s/)
@@ -115,7 +109,7 @@ const UserDropdown = (props: Props) => {
             py: 2,
             px: 4,
             color: 'text.secondary',
-            '& svg': { mr: 2, fontSize: '1.25rem', color: 'text.secondary' }
+            '& svg': { mr: 2, fontSize: '1.25rem', color: 'text.secondary' },
           }}
         >
           <PowerSettingsNewIcon />

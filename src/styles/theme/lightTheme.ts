@@ -2,7 +2,7 @@ import { createTheme, Shadows } from '@mui/material/styles'
 
 const lightTheme = createTheme({
   typography: {
-    fontFamily: "Public Sans"
+    fontFamily: 'Public Sans',
   },
   palette: {
     mode: 'light',
@@ -10,10 +10,10 @@ const lightTheme = createTheme({
       main: '#4C4CFC',
     },
     background: {
-      default: "#F7F7F8"
+      default: '#F7F7F8',
     },
   },
-  shadows: Array(25).fill("none") as Shadows
-});
+  shadows: Array(25).fill('none') as Shadows,
+})
 
 export default lightTheme

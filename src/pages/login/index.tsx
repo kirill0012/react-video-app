@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactNode, useState } from "react"
+import { ReactNode, useState } from 'react'
 
 import {
   Box,
@@ -16,48 +16,48 @@ import {
   FormControlLabel,
   Button,
   OutlinedInput,
-} from "@mui/material"
-import { styled, useTheme } from "@mui/material/styles"
+} from '@mui/material'
+import { styled, useTheme } from '@mui/material/styles'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 // ** Third Party Imports
-import * as yup from "yup";
-import { useForm, Controller } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from 'yup'
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 // ** Layout Import
-import BlankLayout from "@/layouts/BlankLayout"
+import BlankLayout from '@/layouts/BlankLayout'
 
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from '@/hooks/useAuth'
 
 // ** Styled Components
 const AuthIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
-  width: "100%",
+  width: '100%',
   maxWidth: 406,
-  position: "relative",
-}));
+  position: 'relative',
+}))
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().min(5).required(),
-});
+})
 
 const defaultValues = {
-  password: "admin",
-  email: "test@test.com",
-};
+  password: 'admin',
+  email: 'test@test.com',
+}
 
 interface FormData {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
 const LoginPage = () => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
   // ** Hooks
   const auth = useAuth()
-  const theme = useTheme();
+  const theme = useTheme()
 
   const {
     control,
@@ -66,56 +66,56 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm({
     defaultValues,
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(schema),
-  });
+  })
 
   const onSubmit = (data: FormData) => {
-    const { email, password } = data;
+    const { email, password } = data
     auth.login({ email, password }, () => {
       setError('email', {
         type: 'manual',
-        message: 'Email or Password is invalid'
+        message: 'Email or Password is invalid',
       })
     })
-  };
+  }
 
   return (
     <Box className="content-center">
       <AuthIllustrationWrapper>
-        <Card sx={{ borderRadius: "16px" }}>
-          <CardContent sx={{ p: "42px 24px 24px 24px" }}>
+        <Card sx={{ borderRadius: '16px' }}>
+          <CardContent sx={{ p: '42px 24px 24px 24px' }}>
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <div>
                 <Typography
                   variant="h5"
-                  sx={{ fontWeight: 900, fontSize: "36px", lineHeight: "54px" }}
+                  sx={{ fontWeight: 900, fontSize: '36px', lineHeight: '54px' }}
                 >
                   sett
                 </Typography>
               </div>
               <div
                 style={{
-                  display: "flex",
-                  padding: "2px 23px",
-                  border: "1.5px solid #4C4CFC",
-                  borderRadius: "12px",
-                  marginLeft: "12px",
+                  display: 'flex',
+                  padding: '2px 23px',
+                  border: '1.5px solid #4C4CFC',
+                  borderRadius: '12px',
+                  marginLeft: '12px',
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
                     fontWeight: 900,
-                    fontSize: "36px",
-                    color: "#4C4CFC",
-                    lineHeight: "54px",
+                    fontSize: '36px',
+                    color: '#4C4CFC',
+                    lineHeight: '54px',
                   }}
                 >
                   AI
@@ -123,15 +123,11 @@ const LoginPage = () => {
               </div>
             </div>
 
-            <form
-              noValidate
-              autoComplete="off"
-              onSubmit={handleSubmit(onSubmit)}
-            >
+            <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
               <FormControl fullWidth variant="standard" sx={{ pt: '45px' }}>
                 <label
                   htmlFor="auth-login-email"
-                  style={{ fontSize: "14px", fontWeight: "500", color: "#272930" }}
+                  style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
                 >
                   Enter email
                 </label>
@@ -151,10 +147,10 @@ const LoginPage = () => {
                       placeholder="test@test.com"
                       size="small"
                       sx={{
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": {
-                            borderColor: "#DDDEE0",
-                            borderRadius: "8px",
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: '#DDDEE0',
+                            borderRadius: '8px',
                           },
                         },
                       }}
@@ -162,7 +158,7 @@ const LoginPage = () => {
                   )}
                 />
                 {errors.email && (
-                  <FormHelperText sx={{ color: "error.main" }}>
+                  <FormHelperText sx={{ color: 'error.main' }}>
                     {errors.email.message}
                   </FormHelperText>
                 )}
@@ -171,7 +167,7 @@ const LoginPage = () => {
               <FormControl fullWidth sx={{ pt: '16px', mb: '24px' }} variant="standard">
                 <label
                   htmlFor="auth-login-password"
-                  style={{ fontSize: "14px", fontWeight: "500", color: "#272930" }}
+                  style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
                 >
                   Enter password
                 </label>
@@ -186,37 +182,38 @@ const LoginPage = () => {
                       onChange={onChange}
                       id="auth-login-password"
                       error={Boolean(errors.password)}
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       size="small"
                       sx={{
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": {
-                            borderColor: "#DDDEE0",
-                            borderRadius: "8px",
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: '#DDDEE0',
+                            borderRadius: '8px',
                           },
                         },
                       }}
                       InputProps={{
-                        endAdornment: 
-                        <InputAdornment position="end">
-                          <IconButton
-                            edge="end"
-                            onMouseDown={(e) => e.preventDefault()}
-                            onClick={() => setShowPassword(!showPassword)}
-                          >
-                            {showPassword ? (
-                              <VisibilityOff fontSize="small" />
-                            ) : (
-                              <Visibility fontSize="small" />
-                            )}
-                          </IconButton>
-                        </InputAdornment>
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              edge="end"
+                              onMouseDown={(e) => e.preventDefault()}
+                              onClick={() => setShowPassword(!showPassword)}
+                            >
+                              {showPassword ? (
+                                <VisibilityOff fontSize="small" />
+                              ) : (
+                                <Visibility fontSize="small" />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                   )}
                 />
                 {errors.password && (
-                  <FormHelperText sx={{ color: "error.main" }} id="">
+                  <FormHelperText sx={{ color: 'error.main' }} id="">
                     {errors.password.message}
                   </FormHelperText>
                 )}
@@ -226,27 +223,41 @@ const LoginPage = () => {
                 size="large"
                 type="submit"
                 variant="contained"
-                sx={{ mb: '12px', borderRadius: "8px", height: '48px', textTransform: 'none', fontSize: '18px', fontWeight: '400' }}
+                sx={{
+                  mb: '12px',
+                  borderRadius: '8px',
+                  height: '48px',
+                  textTransform: 'none',
+                  fontSize: '18px',
+                  fontWeight: '400',
+                }}
               >
                 Sign in
               </Button>
             </form>
             <Button
-                fullWidth
-                size="large"
-                type="submit"
-                variant="text"
-                sx={{ mb: 0, borderRadius: "8px", height: '48px', textTransform: 'none', fontSize: '18px', fontWeight: '400' }}
-              >
-                Forget password?
-              </Button>
+              fullWidth
+              size="large"
+              type="submit"
+              variant="text"
+              sx={{
+                mb: 0,
+                borderRadius: '8px',
+                height: '48px',
+                textTransform: 'none',
+                fontSize: '18px',
+                fontWeight: '400',
+              }}
+            >
+              Forget password?
+            </Button>
           </CardContent>
         </Card>
       </AuthIllustrationWrapper>
     </Box>
-  );
-};
+  )
+}
 
-LoginPage.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>;
+LoginPage.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>
 
-export default LoginPage;
+export default LoginPage

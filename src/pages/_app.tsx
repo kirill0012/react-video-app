@@ -13,7 +13,7 @@ import '@/styles/globals.css'
 
 import { AuthProvider } from '@/context/AuthContext'
 
-const clientSideEmotionCache = createEmotionCache();
+const clientSideEmotionCache = createEmotionCache()
 
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
@@ -26,7 +26,7 @@ export default function App({
   emotionCache = clientSideEmotionCache,
   pageProps,
 }: ExtendedAppProps) {
-  const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
+  const getLayout = Component.getLayout ?? ((page) => <UserLayout>{page}</UserLayout>)
 
   return (
     <AuthProvider>
@@ -37,5 +37,5 @@ export default function App({
         </ThemeProvider>
       </CacheProvider>
     </AuthProvider>
-  );
+  )
 }
