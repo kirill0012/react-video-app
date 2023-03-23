@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
+import { useAuth } from '@/hooks/useAuth'
 
-export default function Home() {
+function Home() {
+  const auth = useAuth()
+
+  if (!auth.user) {
+    return null
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,3 +28,7 @@ export default function Home() {
     </div>
   )
 }
+
+Home.requiresAuth = true
+
+export default Home

@@ -36,6 +36,10 @@ const UserDropdown = () => {
   const router = useRouter()
   const { logout, user } = useAuth()
 
+  if (!user) {
+    return null
+  }
+
   const handleDropdownOpen = (event: SyntheticEvent) => {
     setAnchorEl(event.currentTarget)
   }

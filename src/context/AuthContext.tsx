@@ -22,47 +22,54 @@ const AuthContext = createContext(defaultProvider)
 
 type Props = {
   children: ReactNode
+  initialUserValue?: UserDataType
 }
 
-const AuthProvider = ({ children }: Props) => {
+const AuthProvider = ({ children, initialUserValue }: Props) => {
   // ** States
-  const [user, setUser] = useState<UserDataType | null>(defaultProvider.user)
+  const [user, setUser] = useState<UserDataType | null>(initialUserValue || null)
   const [loading, setLoading] = useState<boolean>(defaultProvider.loading)
+  const isAuthenticated = !!user
 
   // ** Hooks
   const router = useRouter()
 
-  useEffect(() => {
-    const initAuth = async (): Promise<void> => {
-      setLoading(true)
-      AuthAPI.me()
-        .then(async (user) => {
-          setLoading(false)
-          setUser(user)
-        })
-        .catch(() => {
-          setUser(null)
-          setLoading(false)
-          if (!router.pathname.includes('login')) {
-            router.replace('/login')
-          }
-        })
-    }
+  // useEffect(() => {
+  //   const initAuth = async (): Promise<void> => {
+  //     setLoading(true)
+  //     AuthAPI.me()
+  //       .then(async (user) => {
+  //         setLoading(false)
+  //         setUser(user)
+  //       })
+  //       .catch(() => {
+  //         setUser(null)
+  //         setLoading(false)
+  //         // if (!router.pathname.includes('login')) {
+  //         //   router.replace('/login')
+  //         // }
+  //       })
+  //   }
 
-    initAuth()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  //   initAuth()
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
+
+  // useEffect(() => {
+  //   if (!requiresAuth) return
+
+  //   if (loading || isAuthenticated) return
+
+  //   const route = router.asPath
+
+  //   router.push(`/login?redirect=${encodeURIComponent(route)}`)
+  // }, [isAuthenticated, loading, requiresAuth])
 
   const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
     AuthAPI.login(params)
       .then((user) => {
-        const returnUrl = router.query.returnUrl
-
         setUser(user)
-
-        const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
-
-        router.replace(redirectURL as string)
+        router.replace('/')
       })
       .catch((error) => {
         if (errorCallback) errorCallback(error.error)

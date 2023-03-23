@@ -1,6 +1,6 @@
 const endpoints = {
-  meEndpoint: '/api/auth/me',
-  loginEndpoint: '/api/auth/login',
-  logoutEndpoint: '/api/auth/logout',
+  meEndpoint: '/auth/me',
+  loginEndpoint: '/auth/login',
+  logoutEndpoint: '/auth/logout',
 }
 export default endpoints
