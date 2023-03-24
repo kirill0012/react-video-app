@@ -5,11 +5,9 @@ import { useState, SyntheticEvent, Fragment } from 'react'
 import { useRouter } from 'next/router'
 
 // ** MUI Imports
-import Box from '@mui/material/Box'
 import Menu from '@mui/material/Menu'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
-import Divider from '@mui/material/Divider'
 import MenuItem from '@mui/material/MenuItem'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
@@ -49,21 +47,6 @@ const UserDropdown = () => {
       router.push(url)
     }
     setAnchorEl(null)
-  }
-
-  const styles = {
-    py: 2,
-    px: 4,
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    color: 'text.secondary',
-    textDecoration: 'none',
-    '& svg': {
-      mr: 2,
-      fontSize: '1.25rem',
-      color: 'text.secondary',
-    },
   }
 
   const handleLogout = () => {

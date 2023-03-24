@@ -26,14 +26,21 @@ const defaultValues = {
   videotheme: '',
 }
 
-interface FormData {
+export interface ConceptFormData {
   videosize: string
   videofor: string
   videoconcept: string
   videotheme: string
 }
 
-const ConceptRequest = () => {
+type Props = {
+  disabled: boolean
+  onGenerate: (data: ConceptFormData) => void
+}
+
+const ConceptRequest = (props: Props) => {
+  const { disabled, onGenerate } = props
+
   const {
     control,
     setError,
@@ -45,8 +52,8 @@ const ConceptRequest = () => {
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = (data: FormData) => {
-    console.log(data)
+  const onSubmit = (data: ConceptFormData) => {
+    onGenerate(data)
   }
 
   return (
@@ -81,8 +88,9 @@ const ConceptRequest = () => {
                 onBlur={onBlur}
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
-                disabled
+                disabled={disabled}
                 sx={{
+                  color: '#81848F',
                   borderColor: '#DDDEE0',
                   borderRadius: '8px',
                 }}
@@ -113,7 +121,9 @@ const ConceptRequest = () => {
                 onBlur={onBlur}
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
+                disabled={disabled}
                 sx={{
+                  color: '#81848F',
                   borderColor: '#DDDEE0',
                   borderRadius: '8px',
                 }}
@@ -147,8 +157,9 @@ const ConceptRequest = () => {
                 onBlur={onBlur}
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
-                disabled
+                disabled={disabled}
                 sx={{
+                  color: '#81848F',
                   borderColor: '#DDDEE0',
                   borderRadius: '8px',
                 }}
@@ -172,8 +183,12 @@ const ConceptRequest = () => {
                 onChange={onChange}
                 size="small"
                 placeholder="Describe theme"
+                disabled={disabled}
                 sx={{
                   '& .MuiOutlinedInput-root': {
+                    '& input': {
+                      color: '#81848F',
+                    },
                     '& fieldset': {
                       borderColor: '#DDDEE0',
                       borderRadius: '8px',
@@ -193,21 +208,23 @@ const ConceptRequest = () => {
           </div>
         </FormControl>
 
-        <Button
-          fullWidth
-          size="large"
-          type="submit"
-          variant="contained"
-          sx={{
-            borderRadius: '8px',
-            height: '48px',
-            textTransform: 'none',
-            fontSize: '18px',
-            fontWeight: '400',
-          }}
-        >
-          Generate
-        </Button>
+        {!disabled && (
+          <Button
+            fullWidth
+            size="large"
+            type="submit"
+            variant="contained"
+            sx={{
+              borderRadius: '8px',
+              height: '48px',
+              textTransform: 'none',
+              fontSize: '18px',
+              fontWeight: '400',
+            }}
+          >
+            Generate
+          </Button>
+        )}
       </form>
     </Paper>
   )
