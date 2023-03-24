@@ -16,6 +16,7 @@ import '@/styles/globals.css'
 import { AuthProvider } from '@/context/AuthContext'
 import axios from 'axios'
 import { UserDataType } from '@/context/types'
+import endpoints from '@/constants/endpoints'
 
 const clientSideEmotionCache = createEmotionCache()
 
@@ -55,7 +56,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     if (token) {
       try {
         const session = await axios
-          .get(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
+          .get(`${process.env.NEXT_PUBLIC_API_URL}${endpoints.meEndpoint}`, {
             headers: appContext.ctx.req.headers.cookie
               ? { cookie: appContext.ctx.req.headers.cookie }
               : undefined,
