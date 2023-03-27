@@ -36,7 +36,10 @@ function Home(props: Props) {
   const [conceptIdea, setConceptIdea] = useState<ConceptIdeaState>(null)
   const auth = useAuth()
 
-  const conceptDisabled = profile.limits.concept == 0 || !!conceptIdea
+  const conceptDisabled =
+    profile.limits.concept == 0 ||
+    !!conceptIdea ||
+    (concepts.length > 0 && concepts[0].generations[0].inProgress)
 
   if (!auth.user || !profile.project) {
     return null
