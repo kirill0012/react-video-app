@@ -9,7 +9,7 @@ type Props = {
   onRegenerate: () => void
 }
 
-const MyProject = (props: Props) => {
+const IdeaConfirmation = (props: Props) => {
   const { idea } = props
 
   return (
@@ -86,4 +86,4 @@ const MyProject = (props: Props) => {
   )
 }
 
-export default MyProject
+export default IdeaConfirmation

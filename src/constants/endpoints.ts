@@ -6,5 +6,7 @@ const endpoints = {
   profileEndpoint: '/user/profile',
   ideaGenerateEndpoint: '/concepts/idea',
   conceptGenerateEndpoint: '/concepts/generate',
+  conceptsListEndpoint: '/concepts/list',
+  conceptCancelGenerationEndpoint: 'concepts/cancel',
 }
 export default endpoints
