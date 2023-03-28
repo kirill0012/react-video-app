@@ -5,9 +5,10 @@ import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
 
-import { ConceptItem } from '@/services/concepts'
+import { ConceptItem, VideoItem } from '@/services/concepts'
 import ConceptGenerationComponent from './ConceptGeneration'
 import React from 'react'
+import VideoViewComponent from './VideoView'
 
 type Props = {
   index: number
@@ -19,6 +20,14 @@ const ConceptItemComponent = (props: Props) => {
   const { concept, onCancel } = props
 
   const [value, setValue] = React.useState((concept.generations.length - 1).toString())
+  const [isPlayerOpen, setPlayerOpen] = React.useState<boolean>(false)
+  const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(null)
+
+  const handlePlayerClose = () => setPlayerOpen(false)
+  const openVideoPlayer = (video: VideoItem) => {
+    setSelectedVideo(video)
+    setPlayerOpen(true)
+  }
 
   let cardHeader = null
 
@@ -91,10 +100,12 @@ const ConceptItemComponent = (props: Props) => {
               genIndex={index}
               generation={item}
               onCancel={onCancel}
+              onVideoClick={openVideoPlayer}
             />
           </TabPanel>
         ))}
       </TabContext>
+      <VideoViewComponent open={isPlayerOpen} video={selectedVideo} onClose={handlePlayerClose} />
     </Paper>
   )
 }
