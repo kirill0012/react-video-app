@@ -31,8 +31,26 @@ const handler: NextApiHandler = async (req, res) => {
                   {
                     id: 1,
                     src: '',
-                    image: '',
+                    image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_1',
+                  },
+                  {
+                    id: 2,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_2',
+                  },
+                  {
+                    id: 3,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_2',
+                  },
+                  {
+                    id: 4,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_3',
                   },
                 ],
               },
