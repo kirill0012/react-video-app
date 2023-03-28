@@ -89,6 +89,14 @@ const ConceptRequest = (props: Props) => {
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
                 disabled={disabled}
+                MenuProps={{
+                  sx: {
+                    '& .MuiMenu-paper': {
+                      boxShadow:
+                        'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px',
+                    },
+                  },
+                }}
                 sx={{
                   color: '#81848F',
                   borderColor: '#DDDEE0',
@@ -122,6 +130,14 @@ const ConceptRequest = (props: Props) => {
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
                 disabled={disabled}
+                MenuProps={{
+                  sx: {
+                    '& .MuiMenu-paper': {
+                      boxShadow:
+                        'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px',
+                    },
+                  },
+                }}
                 sx={{
                   color: '#81848F',
                   borderColor: '#DDDEE0',
@@ -158,6 +174,14 @@ const ConceptRequest = (props: Props) => {
                 onChange={onChange}
                 IconComponent={UnfoldMoreOutlinedIcon}
                 disabled={disabled}
+                MenuProps={{
+                  sx: {
+                    '& .MuiMenu-paper': {
+                      boxShadow:
+                        'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px',
+                    },
+                  },
+                }}
                 sx={{
                   color: '#81848F',
                   borderColor: '#DDDEE0',
