@@ -32,25 +32,25 @@ const handler: NextApiHandler = async (req, res) => {
                 videos: [
                   {
                     id: 1,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_1',
                   },
                   {
                     id: 2,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
                     id: 3,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
                     id: 4,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_3',
                   },
@@ -70,25 +70,25 @@ const handler: NextApiHandler = async (req, res) => {
                 videos: [
                   {
                     id: 1,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_1',
                   },
                   {
                     id: 2,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
                     id: 3,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
                     id: 4,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_3',
                   },
@@ -103,7 +103,7 @@ const handler: NextApiHandler = async (req, res) => {
                 videos: [
                   {
                     id: 1,
-                    src: '',
+                    src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 23.png',
                     name: 'video_name_gen_2',
                   },
