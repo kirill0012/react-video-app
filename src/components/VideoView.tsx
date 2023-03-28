@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import EditIcon from '@mui/icons-material/Edit'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import DownloadIcon from '@mui/icons-material/Download'
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
 
 import { VideoItem } from '@/services/concepts'
 type Props = {
@@ -50,6 +51,20 @@ const VideoViewComponent = (props: Props) => {
           controls={true}
           playing={true}
           style={{ marginBottom: '16px' }}
+          playIcon={
+            <PlayCircleOutlineIcon
+              sx={{
+                position: 'absolute',
+                marginLeft: '-28px',
+                marginTop: '-28px',
+                top: '50%',
+                left: '50%',
+                color: '#fff',
+                width: '56px',
+                height: '56px',
+              }}
+            />
+          }
           light={
             <div style={{ width: '100%', height: '100%', position: 'relative' }}>
               <Image src={video.image} fill={true} style={{ objectFit: 'cover' }} alt="Thumbnail" />
