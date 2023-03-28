@@ -17,6 +17,8 @@ const handler: NextApiHandler = async (req, res) => {
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
         const created = new Date()
         created.setTime(created.getTime() - 24 * 60 * 60 * 1000 - 10 * 1000)
+        const created2 = new Date()
+        created2.setTime(created2.getTime() - 2 * 24 * 60 * 60 * 1000 - 10 * 1000)
         res.status(200).json([
           {
             id: 2,
@@ -51,6 +53,59 @@ const handler: NextApiHandler = async (req, res) => {
                     src: '',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_3',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: 3,
+            generations: [
+              {
+                id: 3,
+                inProgress: false,
+                created: created2,
+                brief:
+                  'The video will show a live-action man that his live-action female girlfriend attacking his village successfully. The male is getting angry and try to attack his girlfriend village getting block and loses. The live-action female is doing a victory dance.',
+                videos: [
+                  {
+                    id: 1,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_1',
+                  },
+                  {
+                    id: 2,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_2',
+                  },
+                  {
+                    id: 3,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_2',
+                  },
+                  {
+                    id: 4,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_version_3',
+                  },
+                ],
+              },
+              {
+                id: 4,
+                inProgress: false,
+                created: created2,
+                brief:
+                  'The video will show a live-action man that his live-action female girlfriend attacking his village successfully. The male is getting angry and try to attack his girlfriend village getting block and loses. The live-action female is doing a victory dance.',
+                videos: [
+                  {
+                    id: 1,
+                    src: '',
+                    image: '/demo/Rectangle 22.png',
+                    name: 'video_name_gen_2',
                   },
                 ],
               },

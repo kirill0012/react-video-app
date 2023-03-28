@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.10.6",
     "@hookform/resolvers": "^3.0.0",
     "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.124",
     "@mui/material": "^5.11.13",
     "@types/cookie": "^0.5.1",
     "@types/node": "18.15.5",

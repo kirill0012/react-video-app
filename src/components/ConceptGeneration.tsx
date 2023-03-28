@@ -29,6 +29,7 @@ const ConceptGenerationComponent = (props: Props) => {
       eta_string =
         left_minutes > 99 ? `${Math.round(left_minutes / 60)} Hours` : `${left_minutes} minutes`
     }
+
     // show splash
     return (
       <>

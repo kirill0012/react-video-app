@@ -1,8 +1,13 @@
-import { Button, Paper, Typography } from '@mui/material'
+import { Box, Button, Paper, Typography } from '@mui/material'
+import Tab from '@mui/material/Tab'
+import TabContext from '@mui/lab/TabContext'
+import TabList from '@mui/lab/TabList'
+import TabPanel from '@mui/lab/TabPanel'
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
 
 import { ConceptItem } from '@/services/concepts'
 import ConceptGenerationComponent from './ConceptGeneration'
+import React from 'react'
 
 type Props = {
   index: number
@@ -12,6 +17,8 @@ type Props = {
 
 const ConceptItemComponent = (props: Props) => {
   const { concept, onCancel } = props
+
+  const [value, setValue] = React.useState((concept.generations.length - 1).toString())
 
   let cardHeader = null
 
@@ -35,7 +42,6 @@ const ConceptItemComponent = (props: Props) => {
             {timeSince(new Date(concept.generations[0].created))} ago
           </Typography>
         </div>
-        {concept.generations.length > 1 && <>gens list</>}
       </>
     )
   }
@@ -50,15 +56,45 @@ const ConceptItemComponent = (props: Props) => {
         mb: '24px',
       }}
     >
-      {cardHeader}
-      {concept.generations.map((item, index) => (
-        <ConceptGenerationComponent
-          key={`${concept.id}-gen${index}`}
-          genIndex={index}
-          generation={item}
-          onCancel={onCancel}
-        />
-      ))}
+      <TabContext value={value}>
+        {cardHeader}
+        {concept.generations.length > 1 && (
+          <div style={{ marginBottom: '16px' }}>
+            {concept.generations.map((gen, index) => (
+              <Button
+                key={gen.id}
+                variant="text"
+                onClick={() => setValue(index.toString())}
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '400',
+                  color: '#272930',
+                  textTransform: 'none',
+                  ...(value === index.toString()
+                    ? {
+                        color: '#4C4CFC',
+                        background: 'rgba(76, 76, 252, 0.12)',
+                        boxShadow:
+                          '1.1px 2.7px 3.8px -1.2px rgba(187, 187, 187, 0.26), 0.5px 1.3px 1.8px -0.6px rgba(187, 187, 187, 0.18), 0.3px 0.8px 1.1px rgba(187, 187, 187, 0.11)',
+                        borderRadius: '9px',
+                      }
+                    : {}),
+                }}
+              >{`${index + 1} gen`}</Button>
+            ))}
+          </div>
+        )}
+        {concept.generations.map((item, index) => (
+          <TabPanel key={item.id} value={index.toString()} sx={{ p: 0 }}>
+            <ConceptGenerationComponent
+              key={`${concept.id}-gen${index}`}
+              genIndex={index}
+              generation={item}
+              onCancel={onCancel}
+            />
+          </TabPanel>
+        ))}
+      </TabContext>
     </Paper>
   )
 }
