@@ -182,8 +182,9 @@ const ConceptGenerationComponent = (props: Props) => {
         {generation.videos[0].name}
       </Typography>
       <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F', pb: '12px' }}>
-        This video was created base on the following brief, that was generated according to your
-        data:
+        {generation.ref != null
+          ? `This video was iterated on base of ${generation.ref} with the following request:`
+          : 'This video was created base on the following brief, that was generated according to your data:'}
       </Typography>
       <Typography sx={{ fontSize: '16px', fontWeight: '400', color: '#272930' }}>
         {generation.brief}

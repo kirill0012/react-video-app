@@ -98,8 +98,8 @@ const handler: NextApiHandler = async (req, res) => {
                 id: 4,
                 inProgress: false,
                 created: created2,
-                brief:
-                  'The video will show a live-action man that his live-action female girlfriend attacking his village successfully. The male is getting angry and try to attack his girlfriend village getting block and loses. The live-action female is doing a victory dance.',
+                ref: 'video_name_version_3',
+                brief: '<Iteration Request Summary>',
                 videos: [
                   {
                     id: 1,
