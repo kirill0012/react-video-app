@@ -83,7 +83,14 @@ const UserDropdown = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={() => handleDropdownClose()}
-        sx={{ '& .MuiMenu-paper': { width: 230, mt: 4 } }}
+        sx={{
+          '& .MuiMenu-paper': {
+            width: 230,
+            mt: 4,
+            boxShadow:
+              'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px',
+          },
+        }}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         autoFocus={false}
