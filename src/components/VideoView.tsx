@@ -12,6 +12,7 @@ type Props = {
   video: VideoItem | null
   open: boolean
   onClose: () => void
+  iterationDisabled: boolean
 }
 
 const style = {
@@ -77,6 +78,7 @@ const VideoViewComponent = (props: Props) => {
             size="large"
             type="submit"
             variant="contained"
+            disabled={props.iterationDisabled}
             sx={{
               borderRadius: '8px',
               height: '48px',

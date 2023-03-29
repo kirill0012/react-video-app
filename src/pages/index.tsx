@@ -10,6 +10,7 @@ import MyProject from '@/components/MyProject'
 import endpoints from '@/constants/endpoints'
 import ConceptIdeaComponent from '@/components/ConceptIdea'
 import ConceptsList from '@/components/ConceptsList'
+import { GetServerSideProps } from 'next/types'
 
 type Props = {
   profile: {
@@ -19,6 +20,7 @@ type Props = {
     } | null
     limits: {
       concept: number
+      iterations: number
     }
   }
   concepts: Array<ConceptItem>
@@ -40,6 +42,7 @@ function Home(props: Props) {
     profile.limits.concept == 0 ||
     !!conceptIdea ||
     (concepts.length > 0 && concepts[0].generations[0].inProgress)
+  const iterationDisabled = profile.limits.iterations == 0
 
   if (!auth.user || !profile.project) {
     return null
@@ -114,7 +117,11 @@ function Home(props: Props) {
             You still didn’t generate any videos!
           </Typography>
         )}
-        <ConceptsList concepts={concepts} onCancel={onCancelGeneration} />
+        <ConceptsList
+          concepts={concepts}
+          onCancel={onCancelGeneration}
+          iterationDisabled={iterationDisabled}
+        />
       </Grid>
       <Grid item sx={{ width: '406px', pl: '0px !important' }}>
         <ConceptRequest disabled={conceptDisabled} onGenerate={onGenerateConcept} />
@@ -123,12 +130,7 @@ function Home(props: Props) {
   )
 }
 
-export async function getServerSideProps(context: any) {
-  // const preload = []
-  // Promise.all(preload)
-
-  console.log(context.req?.headers?.cookie)
-
+export const getServerSideProps: GetServerSideProps = async (context) => {
   if (context.req?.headers?.cookie) {
     const { token } = jsHttpCookie.parse(context.req.headers.cookie)
 

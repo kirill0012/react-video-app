@@ -14,6 +14,7 @@ type Props = {
   index: number
   concept: ConceptItem
   onCancel: (id: number) => void
+  iterationDisabled: boolean
 }
 
 const ConceptItemComponent = (props: Props) => {
@@ -105,7 +106,12 @@ const ConceptItemComponent = (props: Props) => {
           </TabPanel>
         ))}
       </TabContext>
-      <VideoViewComponent open={isPlayerOpen} video={selectedVideo} onClose={handlePlayerClose} />
+      <VideoViewComponent
+        open={isPlayerOpen}
+        video={selectedVideo}
+        onClose={handlePlayerClose}
+        iterationDisabled={props.iterationDisabled}
+      />
     </Paper>
   )
 }

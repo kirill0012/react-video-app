@@ -15,6 +15,11 @@ const handler: NextApiHandler = async (req, res) => {
       }
 
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
+        const eta = new Date()
+        eta.setTime(eta.getTime() + 12 * 60 * 60 * 1000)
+        const current = new Date()
+        current.setTime(current.getTime() + 1 * 60 * 60 * 1000)
+
         const created = new Date()
         created.setTime(created.getTime() - 24 * 60 * 60 * 1000 - 10 * 1000)
         const created2 = new Date()
@@ -102,10 +107,26 @@ const handler: NextApiHandler = async (req, res) => {
                 brief: '<Iteration Request Summary>',
                 videos: [
                   {
-                    id: 1,
+                    id: 5,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 23.png',
                     name: 'video_name_gen_2',
+                  },
+                ],
+              },
+              {
+                id: 5,
+                inProgress: true,
+                created: new Date(),
+                current: current,
+                eta: eta,
+                ref: 'video_name_version_4',
+                brief: '<Iteration Request Summary>',
+                videos: [
+                  {
+                    id: 6,
+                    image: '/demo/Rectangle 23.png',
+                    name: 'video_name_gen_3',
                   },
                 ],
               },

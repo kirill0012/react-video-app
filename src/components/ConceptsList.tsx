@@ -7,6 +7,7 @@ import ConceptItemComponent from './ConceptItem'
 type Props = {
   concepts: ConceptItem[]
   onCancel: (id: number) => void
+  iterationDisabled: boolean
 }
 
 const ConceptsList = (props: Props) => {
@@ -22,6 +23,7 @@ const ConceptsList = (props: Props) => {
           index={index}
           concept={concept}
           onCancel={onCancel}
+          iterationDisabled={props.iterationDisabled}
         />
       ))}
     </>

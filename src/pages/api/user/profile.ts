@@ -22,6 +22,7 @@ const handler: NextApiHandler = async (req, res) => {
           },
           limits: {
             concept: 2,
+            iterations: 2,
           },
         })
       } else {
