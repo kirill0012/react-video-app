@@ -8,5 +8,7 @@ const endpoints = {
   conceptGenerateEndpoint: '/concepts/generate',
   conceptsListEndpoint: '/concepts/list',
   conceptCancelGenerationEndpoint: 'concepts/cancel',
+
+  videosRateEndpoint: 'videos/rate',
 }
 export default endpoints

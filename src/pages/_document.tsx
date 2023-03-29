@@ -77,7 +77,7 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Public+Sans:400,500,700,900&display=swap"
+            href="https://fonts.googleapis.com/css?family=Public+Sans:400,500,600,700,900&display=swap"
           />
         </Head>
         <body>

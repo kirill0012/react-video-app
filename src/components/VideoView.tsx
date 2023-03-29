@@ -12,6 +12,8 @@ type Props = {
   video: VideoItem | null
   open: boolean
   onClose: () => void
+  onRateQuality: (video: VideoItem) => void
+  onIterate: (video: VideoItem) => void
   iterationDisabled: boolean
 }
 
@@ -79,6 +81,7 @@ const VideoViewComponent = (props: Props) => {
             type="submit"
             variant="contained"
             disabled={props.iterationDisabled}
+            onClick={() => props.onIterate(video)}
             sx={{
               borderRadius: '8px',
               height: '48px',
@@ -98,6 +101,7 @@ const VideoViewComponent = (props: Props) => {
             size="large"
             type="submit"
             variant="contained"
+            onClick={() => props.onRateQuality(video)}
             sx={{
               borderRadius: '8px',
               height: '48px',

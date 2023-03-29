@@ -9,6 +9,7 @@ import { ConceptItem, VideoItem } from '@/services/concepts'
 import ConceptGenerationComponent from './ConceptGeneration'
 import React from 'react'
 import VideoViewComponent from './VideoView'
+import RateQualityComponent from './RateQuality'
 
 type Props = {
   index: number
@@ -22,12 +23,29 @@ const ConceptItemComponent = (props: Props) => {
 
   const [value, setValue] = React.useState((concept.generations.length - 1).toString())
   const [isPlayerOpen, setPlayerOpen] = React.useState<boolean>(false)
+  const [isRateOpen, setRateOpen] = React.useState<boolean>(false)
+  const [isIterateOpen, setIterateOpen] = React.useState<boolean>(false)
   const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(null)
 
   const handlePlayerClose = () => setPlayerOpen(false)
+  const handleRateClose = () => setRateOpen(false)
+  const handleIterateClose = () => setIterateOpen(false)
+
   const openVideoPlayer = (video: VideoItem) => {
     setSelectedVideo(video)
     setPlayerOpen(true)
+  }
+
+  const openVideoRate = (video: VideoItem) => {
+    setSelectedVideo(video)
+    setPlayerOpen(false)
+    setRateOpen(true)
+  }
+
+  const openVideoIterate = (video: VideoItem) => {
+    setSelectedVideo(video)
+    setPlayerOpen(false)
+    setIterateOpen(true)
   }
 
   let cardHeader = null
@@ -111,7 +129,10 @@ const ConceptItemComponent = (props: Props) => {
         video={selectedVideo}
         onClose={handlePlayerClose}
         iterationDisabled={props.iterationDisabled}
+        onIterate={openVideoIterate}
+        onRateQuality={openVideoRate}
       />
+      <RateQualityComponent open={isRateOpen} video={selectedVideo} onClose={handleRateClose} />
     </Paper>
   )
 }
