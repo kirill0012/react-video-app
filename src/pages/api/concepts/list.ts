@@ -16,7 +16,7 @@ const handler: NextApiHandler = async (req, res) => {
 
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
         const eta = new Date()
-        eta.setTime(eta.getTime() + 12 * 60 * 60 * 1000)
+        eta.setTime(eta.getTime() + 2 * 60 * 60 * 1000)
         const current = new Date()
         current.setTime(current.getTime() + 1 * 60 * 60 * 1000)
 
