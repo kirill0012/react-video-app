@@ -1,11 +1,11 @@
 import { Button, Paper, Typography } from '@mui/material'
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
 
-import { ConceptIdea } from '@/services/concepts'
+import { IdeaItem } from '@/services/ideas'
 
 type Props = {
-  idea: ConceptIdea
-  onConfirm: (idea: ConceptIdea) => void
+  idea: IdeaItem
+  onConfirm: (idea: IdeaItem) => void
   onRegenerate: () => void
 }
 

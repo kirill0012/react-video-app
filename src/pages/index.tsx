@@ -4,13 +4,14 @@ import jsHttpCookie from 'cookie'
 import axios from 'axios'
 
 import { useAuth } from '@/hooks/useAuth'
-import { ConceptIdea, ConceptItem, ConceptsAPI } from '@/services/concepts'
+import { ConceptItem, ConceptsAPI } from '@/services/concepts'
 import ConceptRequest, { ConceptFormData } from '@/components/ConceptRequest'
 import MyProject from '@/components/MyProject'
 import endpoints from '@/constants/endpoints'
 import ConceptIdeaComponent from '@/components/ConceptIdea'
 import ConceptsList from '@/components/ConceptsList'
 import { GetServerSideProps } from 'next/types'
+import { IdeaItem, IdeasAPI } from '@/services/ideas'
 
 type Props = {
   profile: {
@@ -28,7 +29,7 @@ type Props = {
 
 type ConceptIdeaState = {
   request: ConceptFormData
-  idea: ConceptIdea
+  idea: IdeaItem
 } | null
 
 function Home(props: Props) {
@@ -49,7 +50,7 @@ function Home(props: Props) {
   }
 
   const onGenerateConcept = async (data: ConceptFormData) => {
-    await ConceptsAPI.generateIdea()
+    await IdeasAPI.generateIdea()
       .then((idea) => {
         console.log(idea)
         setConceptIdea({
@@ -61,7 +62,7 @@ function Home(props: Props) {
         setConceptIdea(null)
       })
   }
-  const onConceptIdeaConfirm = async (idea: ConceptIdea) => {
+  const onConceptIdeaConfirm = async (idea: IdeaItem) => {
     //submit
     await ConceptsAPI.generateConcept(idea)
       .then((concept) => {
