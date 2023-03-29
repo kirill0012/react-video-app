@@ -1,9 +1,6 @@
-import { Box, Button, Paper, Typography } from '@mui/material'
-import Tab from '@mui/material/Tab'
+import { Button, Paper, Typography } from '@mui/material'
 import TabContext from '@mui/lab/TabContext'
-import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
-import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
 
 import { ConceptItem, VideoItem } from '@/services/concepts'
 import ConceptGenerationComponent from './ConceptGeneration'

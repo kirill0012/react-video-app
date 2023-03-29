@@ -1,5 +1,5 @@
 // ** React Imports
-import { createContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useState, ReactNode } from 'react'
 
 // ** Next Import
 import { useRouter } from 'next/router'
@@ -29,41 +29,9 @@ const AuthProvider = ({ children, initialUserValue }: Props) => {
   // ** States
   const [user, setUser] = useState<UserDataType | null>(initialUserValue || null)
   const [loading, setLoading] = useState<boolean>(defaultProvider.loading)
-  const isAuthenticated = !!user
 
   // ** Hooks
   const router = useRouter()
-
-  // useEffect(() => {
-  //   const initAuth = async (): Promise<void> => {
-  //     setLoading(true)
-  //     AuthAPI.me()
-  //       .then(async (user) => {
-  //         setLoading(false)
-  //         setUser(user)
-  //       })
-  //       .catch(() => {
-  //         setUser(null)
-  //         setLoading(false)
-  //         // if (!router.pathname.includes('login')) {
-  //         //   router.replace('/login')
-  //         // }
-  //       })
-  //   }
-
-  //   initAuth()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-
-  // useEffect(() => {
-  //   if (!requiresAuth) return
-
-  //   if (loading || isAuthenticated) return
-
-  //   const route = router.asPath
-
-  //   router.push(`/login?redirect=${encodeURIComponent(route)}`)
-  // }, [isAuthenticated, loading, requiresAuth])
 
   const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
     AuthAPI.login(params)

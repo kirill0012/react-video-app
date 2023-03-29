@@ -6,7 +6,7 @@ import Box, { BoxProps } from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 
 // ** Type Import
-import { LayoutProps, VerticalLayoutProps } from '@/layouts/types'
+import { VerticalLayoutProps } from '@/layouts/types'
 
 import AppBar from '@/layouts/components/AppBar'
 import UserAppBar from './components/UserAppBar'
@@ -26,14 +26,6 @@ const MainContentWrapper = styled(Box)<BoxProps>({
   display: 'flex',
   minHeight: '100vh',
   flexDirection: 'column',
-})
-
-const AppBarBgBlur = styled(Box)<BoxProps>({
-  top: 0,
-  zIndex: 10,
-  width: '100%',
-  position: 'fixed',
-  backdropFilter: 'saturate(200%) blur(10px)',
 })
 
 const ContentWrapper = styled('main')(({ theme }) => ({

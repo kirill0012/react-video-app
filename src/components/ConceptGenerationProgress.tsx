@@ -1,7 +1,6 @@
 import { Button, LinearProgress, Typography } from '@mui/material'
 import Image from 'next/image'
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
-import { Generation, VideoItem } from '@/services/concepts'
+import { Generation } from '@/services/concepts'
 
 type Props = {
   genIndex: number

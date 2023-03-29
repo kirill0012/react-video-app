@@ -1,6 +1,3 @@
-import { Button, Paper, Typography } from '@mui/material'
-import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
-
 import { ConceptItem } from '@/services/concepts'
 import ConceptItemComponent from './ConceptItem'
 
