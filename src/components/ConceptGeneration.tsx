@@ -28,7 +28,7 @@ const ConceptGenerationComponent = (props: Props) => {
   return (
     <>
       {generation.videos.length > 0 && (
-        <div style={{ marginBottom: '12px', display: 'flex' }}>
+        <div style={{ marginBottom: '8px', display: 'flex' }}>
           <div
             style={{ width: '304px', height: '208px', position: 'relative', cursor: 'pointer' }}
             onClick={() => props.onVideoClick(generation.videos[0])}
@@ -43,13 +43,13 @@ const ConceptGenerationComponent = (props: Props) => {
               <PlayCircleOutlineIcon
                 sx={{
                   position: 'absolute',
-                  marginLeft: '-27px',
-                  marginTop: '-27px',
+                  marginLeft: '-32px',
+                  marginTop: '-32px',
                   top: '50%',
                   left: '50%',
                   color: '#fff',
-                  width: '54px',
-                  height: '54px',
+                  width: '64px',
+                  height: '64px',
                 }}
               />
             </div>
@@ -80,13 +80,13 @@ const ConceptGenerationComponent = (props: Props) => {
                   <PlayCircleOutlineIcon
                     sx={{
                       position: 'absolute',
-                      marginLeft: '-13px',
-                      marginTop: '-13px',
+                      marginLeft: '-16px',
+                      marginTop: '-16px',
                       top: '50%',
                       left: '50%',
                       color: '#fff',
-                      width: '26px',
-                      height: '26px',
+                      width: '32px',
+                      height: '32px',
                     }}
                   />
                 </div>

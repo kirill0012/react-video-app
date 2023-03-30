@@ -32,12 +32,28 @@ const ConceptGenerationProgressComponent = (props: Props) => {
     // show splash
     return (
       <>
-        <Typography sx={{ fontSize: '18px', fontWeight: '600', color: '#272930', pb: '16px' }}>
+        <Typography
+          sx={{
+            fontSize: '18px',
+            fontWeight: '600',
+            color: '#272930',
+            pb: '16px',
+            lineHeight: '31px',
+          }}
+        >
           Working on your new concepts!
           <br />
           We’ll notify you by email when they’re ready
         </Typography>
-        <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F', pb: '12px' }}>
+        <Typography
+          sx={{
+            fontSize: '14px',
+            fontWeight: '500',
+            color: '#81848F',
+            lineHeight: '21px',
+            pb: '13px',
+          }}
+        >
           We are now
         </Typography>
         <Typography sx={{ fontSize: '16px', fontWeight: '400', color: '#272930', pb: '12px' }}>
@@ -77,7 +93,7 @@ const ConceptGenerationProgressComponent = (props: Props) => {
               variant="determinate"
               value={eta_value}
               sx={{
-                mb: '30px',
+                mb: '23px',
                 height: '8px',
                 borderRadius: '4px',
                 background: '#EEEFF0',

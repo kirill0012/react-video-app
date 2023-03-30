@@ -17,7 +17,7 @@ const MyProject = (props: Props) => {
         border: '1px solid #DDDEE0',
         borderRadius: '16px',
         p: '16px',
-        height: '98px',
+        height: '96px',
         mb: '24px',
       }}
     >

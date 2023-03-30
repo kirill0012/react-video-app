@@ -70,7 +70,13 @@ const ConceptRequest = (props: Props) => {
         <FormControl fullWidth size="small" sx={{ pb: '16px' }}>
           <label
             htmlFor="auth-login-email"
-            style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
+            style={{
+              fontSize: '14px',
+              fontWeight: '500',
+              lineHeight: '21px',
+              marginBottom: '4px',
+              color: '#272930',
+            }}
           >
             I need
           </label>
@@ -111,7 +117,13 @@ const ConceptRequest = (props: Props) => {
         <FormControl fullWidth size="small" sx={{ pb: '24px' }}>
           <label
             htmlFor="auth-login-email"
-            style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
+            style={{
+              fontSize: '14px',
+              fontWeight: '500',
+              lineHeight: '21px',
+              marginBottom: '4px',
+              color: '#272930',
+            }}
           >
             Videos for
           </label>
@@ -152,12 +164,18 @@ const ConceptRequest = (props: Props) => {
           />
         </FormControl>
 
-        <FormControl fullWidth size="small" sx={{ pb: '16px' }}>
+        <FormControl fullWidth size="small" sx={{ pb: '12px' }}>
           <label
             htmlFor="auth-login-email"
-            style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
+            style={{
+              fontSize: '14px',
+              fontWeight: '500',
+              lineHeight: '21px',
+              marginBottom: '4px',
+              color: '#272930',
+            }}
           >
-            Choose concept
+            Choose a concept
           </label>
 
           <Controller

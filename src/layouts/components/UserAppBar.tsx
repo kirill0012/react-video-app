@@ -31,8 +31,8 @@ const UserAppBar = () => {
               display: 'flex',
               padding: '1px 15px',
               border: '1.5px solid #4C4CFC',
-              borderRadius: '12px',
-              marginLeft: '12px',
+              borderRadius: '8px',
+              marginLeft: '8px',
             }}
           >
             <Typography

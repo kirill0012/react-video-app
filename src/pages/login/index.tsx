@@ -121,10 +121,16 @@ const LoginPage = () => {
             </div>
 
             <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-              <FormControl fullWidth variant="standard" sx={{ pt: '45px' }}>
+              <FormControl fullWidth variant="standard" sx={{ pt: '43px' }}>
                 <label
                   htmlFor="auth-login-email"
-                  style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '21px',
+                    color: '#272930',
+                    marginBottom: '4px',
+                  }}
                 >
                   Enter email
                 </label>
@@ -164,7 +170,13 @@ const LoginPage = () => {
               <FormControl fullWidth sx={{ pt: '16px', mb: '24px' }} variant="standard">
                 <label
                   htmlFor="auth-login-password"
-                  style={{ fontSize: '14px', fontWeight: '500', color: '#272930' }}
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '21px',
+                    marginBottom: '4px',
+                    color: '#272930',
+                  }}
                 >
                   Enter password
                 </label>

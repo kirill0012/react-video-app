@@ -53,7 +53,9 @@ const ConceptItemComponent = (props: Props) => {
     cardHeader = (
       <>
         <div style={{ paddingBottom: '16px', display: 'flex' }}>
-          <Typography sx={{ fontSize: '18px', fontWeight: '600', color: '#272930' }}>
+          <Typography
+            sx={{ fontSize: '18px', fontWeight: '600', color: '#272930', lineHeight: '31px' }}
+          >
             Your {props.index == 0 ? 'latest' : 'previous'} generation results
           </Typography>
           <Typography

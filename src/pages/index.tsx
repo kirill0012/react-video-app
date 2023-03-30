@@ -111,7 +111,7 @@ function Home(props: Props) {
       <Head>
         <title>SettAI</title>
       </Head>
-      <Grid item xs sx={{ pr: '30px' }}>
+      <Grid item xs sx={{ pr: '30px', pt: '22px !important' }}>
         <MyProject project={profile.project} />
         {conceptIdea && (
           <ConceptIdeaComponent
