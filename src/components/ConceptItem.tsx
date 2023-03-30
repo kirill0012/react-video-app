@@ -7,16 +7,18 @@ import ConceptGenerationComponent from './ConceptGeneration'
 import React from 'react'
 import VideoViewComponent from './VideoView'
 import RateQualityComponent from './RateQuality'
+import IterateConceptComponent, { IterateFormData } from './IterateConcept'
 
 type Props = {
   index: number
   concept: ConceptItem
   onCancel: (id: number) => void
   iterationDisabled: boolean
+  onIterateVideo: (videoId: number, data: IterateFormData) => void
 }
 
 const ConceptItemComponent = (props: Props) => {
-  const { concept, onCancel } = props
+  const { concept, onCancel, onIterateVideo } = props
 
   const [value, setValue] = React.useState((concept.generations.length - 1).toString())
   const [isPlayerOpen, setPlayerOpen] = React.useState<boolean>(false)
@@ -130,6 +132,12 @@ const ConceptItemComponent = (props: Props) => {
         onRateQuality={openVideoRate}
       />
       <RateQualityComponent open={isRateOpen} video={selectedVideo} onClose={handleRateClose} />
+      <IterateConceptComponent
+        open={isIterateOpen}
+        video={selectedVideo}
+        onClose={handleIterateClose}
+        onIterateVideo={onIterateVideo}
+      />
     </Paper>
   )
 }

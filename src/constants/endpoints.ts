@@ -7,8 +7,9 @@ const endpoints = {
   ideaGenerateEndpoint: '/concepts/idea',
   conceptGenerateEndpoint: '/concepts/generate',
   conceptsListEndpoint: '/concepts/list',
-  conceptCancelGenerationEndpoint: 'concepts/cancel',
+  conceptCancelGenerationEndpoint: '/concepts/cancel',
+  conceptIterateEndpoint: '/concepts/iterate',
 
-  videosRateEndpoint: 'videos/rate',
+  videosRateEndpoint: '/videos/rate',
 }
 export default endpoints

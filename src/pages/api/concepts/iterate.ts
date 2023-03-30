@@ -15,9 +15,9 @@ const handler: NextApiHandler = async (req, res) => {
       }
 
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
-        const { videoId, rating } = req.body
+        const { subject, transcript, remove } = req.body
 
-        console.log({ videoId, rating })
+        console.log({ subject, transcript, remove })
 
         res.status(200).json({ success: true })
       } else {

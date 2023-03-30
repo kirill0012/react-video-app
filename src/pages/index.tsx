@@ -12,6 +12,8 @@ import ConceptIdeaComponent from '@/components/ConceptIdea'
 import ConceptsList from '@/components/ConceptsList'
 import { GetServerSideProps } from 'next/types'
 import { IdeaItem, IdeasAPI } from '@/services/ideas'
+import Head from 'next/head'
+import { IterateFormData } from '@/components/IterateConcept'
 
 type Props = {
   profile: {
@@ -94,9 +96,21 @@ function Home(props: Props) {
         setConcepts(concepts)
       })
   }
+  const onIterateVideo = async (videoId: number, data: IterateFormData) => {
+    await ConceptsAPI.iterateConcept(videoId, data.subject, data.transcript, data.remove)
+      .then(() => {
+        return ConceptsAPI.listConcepts()
+      })
+      .then((concepts) => {
+        setConcepts(concepts)
+      })
+  }
 
   return (
     <Grid container spacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' } }}>
+      <Head>
+        <title>SettAI</title>
+      </Head>
       <Grid item xs sx={{ pr: '30px' }}>
         <MyProject project={profile.project} />
         {conceptIdea && (
@@ -121,6 +135,7 @@ function Home(props: Props) {
         <ConceptsList
           concepts={concepts}
           onCancel={onCancelGeneration}
+          onIterateVideo={onIterateVideo}
           iterationDisabled={iterationDisabled}
         />
       </Grid>

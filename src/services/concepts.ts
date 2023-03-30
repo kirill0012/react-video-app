@@ -68,4 +68,27 @@ export const ConceptsAPI = {
 
     return Promise.resolve(response.data)
   },
+  iterateConcept: async (
+    videoId: number,
+    subject: Array<number>,
+    transcript: string,
+    remove: Array<number>
+  ): Promise<void> => {
+    const response = await request
+      .request<ConceptItem>({
+        url: endpoints.conceptIterateEndpoint,
+        method: 'POST',
+        data: {
+          videoId: videoId,
+          subject: subject,
+          transcript: transcript,
+          remove: remove,
+        },
+      })
+      .catch(() => {
+        return Promise.reject(false)
+      })
+
+    return Promise.resolve()
+  },
 }
