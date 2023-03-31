@@ -58,13 +58,13 @@ const VideoViewComponent = (props: Props) => {
             <PlayCircleOutlineIcon
               sx={{
                 position: 'absolute',
-                marginLeft: '-28px',
-                marginTop: '-28px',
+                marginLeft: '-32px',
+                marginTop: '-32px',
                 top: '50%',
                 left: '50%',
                 color: '#fff',
-                width: '56px',
-                height: '56px',
+                width: '64px',
+                height: '64px',
               }}
             />
           }

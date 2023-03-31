@@ -88,7 +88,7 @@ const ConceptItemComponent = (props: Props) => {
       <TabContext value={value}>
         {cardHeader}
         {concept.generations.length > 1 && (
-          <div style={{ marginBottom: '16px' }}>
+          <div style={{ marginBottom: '18px', marginTop: '4px' }}>
             {concept.generations.map((gen, index) => (
               <Button
                 key={gen.id}
@@ -99,6 +99,9 @@ const ConceptItemComponent = (props: Props) => {
                   fontWeight: '400',
                   color: '#272930',
                   textTransform: 'none',
+                  p: '3px 8px',
+                  minWidth: 'unset',
+                  mr: '2px',
                   ...(value === index.toString()
                     ? {
                         color: '#4C4CFC',

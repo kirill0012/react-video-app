@@ -117,7 +117,7 @@ const IterateConceptComponent = (props: Props) => {
             </Typography>
           </div>
 
-          <FormControl component="fieldset" fullWidth size="small" sx={{ mb: '24px' }}>
+          <FormControl component="fieldset" fullWidth size="small" sx={{ mb: '18px' }}>
             <FormGroup row>
               <Controller
                 name="subject"
@@ -140,7 +140,7 @@ const IterateConceptComponent = (props: Props) => {
                         sx={{
                           flex: '0 0 33.333333%',
                           height: '28px',
-                          width: '195px',
+                          width: '190px',
                         }}
                         control={
                           <Checkbox
@@ -232,7 +232,7 @@ const IterateConceptComponent = (props: Props) => {
             </Typography>
           </div>
 
-          <FormControl component="fieldset" fullWidth size="small" sx={{ mb: '133px' }}>
+          <FormControl component="fieldset" fullWidth size="small" sx={{ mb: '123px' }}>
             <FormGroup row>
               <Controller
                 name="remove"
@@ -255,7 +255,7 @@ const IterateConceptComponent = (props: Props) => {
                         sx={{
                           flex: '0 0 33.333333%',
                           height: '28px',
-                          width: '195px',
+                          width: '190px',
                         }}
                         control={
                           <Checkbox

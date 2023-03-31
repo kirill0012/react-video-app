@@ -129,7 +129,7 @@ const ConceptGenerationProgressComponent = (props: Props) => {
     return (
       <>
         {generation.videos.length > 0 && (
-          <div style={{ marginBottom: '12px', display: 'flex' }}>
+          <div style={{ marginBottom: '9px', display: 'flex' }}>
             <div style={{ width: '304px', height: '208px', position: 'relative' }}>
               <Image
                 src={generation.videos[0].image}
@@ -205,7 +205,7 @@ const ConceptGenerationProgressComponent = (props: Props) => {
         <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F' }}>
           Iterating {generation.ref}
         </Typography>
-        <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F', pb: '30px' }}>
+        <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F', pb: '24px' }}>
           {generation.brief}
         </Typography>
         <Button
