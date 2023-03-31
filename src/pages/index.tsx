@@ -45,7 +45,15 @@ function Home(props: Props) {
     profile.limits.concept == 0 ||
     !!conceptIdea ||
     (concepts.length > 0 && concepts[0].generations[0].inProgress)
-  const iterationDisabled = profile.limits.iterations == 0
+
+  let curIterations = 0
+  concepts.map((concept) => {
+    if (concept.generations.length <= 1) return
+    concept.generations.map((gen) => {
+      if (gen.inProgress) curIterations++
+    })
+  })
+  const iterationDisabled = profile.limits.iterations == 0 || curIterations > 2
 
   if (!auth.user || !profile.project) {
     return null
