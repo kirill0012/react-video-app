@@ -1,5 +1,14 @@
 import Image from 'next/image'
-import { Box, Button, IconContainerProps, Modal, Rating, styled, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  ButtonProps,
+  IconContainerProps,
+  Modal,
+  Rating,
+  styled,
+  Typography,
+} from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
 import { VideoItem } from '@/services/concepts'
@@ -23,13 +32,25 @@ const style = {
   p: '24px',
 }
 
-const StyledRating = styled(Rating)(({ theme }) => ({
+// ** Styled Components
+const StyledRating = styled(Rating)(() => ({
   '& .MuiRating-iconEmpty img': {
     filter: 'grayscale(1.0)',
   },
   '& .MuiRating-iconActive': {
     transform: 'none',
   },
+}))
+
+const ButtonSecondaryWrapper = styled(Button)<ButtonProps>(() => ({
+  borderRadius: '8px',
+  height: '48px',
+  textTransform: 'none',
+  fontSize: '18px',
+  fontWeight: '400',
+  background: 'rgba(76, 76, 252, 0.12)',
+  color: '#4C4CFC',
+  '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
 }))
 
 const customIcons: {
@@ -176,25 +197,15 @@ const RateQualityComponent = (props: Props) => {
           >
             Submit
           </Button>
-          <Button
+          <ButtonSecondaryWrapper
             fullWidth
             size="large"
             type="submit"
             variant="contained"
             onClick={onClose}
-            sx={{
-              borderRadius: '8px',
-              height: '48px',
-              textTransform: 'none',
-              fontSize: '18px',
-              fontWeight: '400',
-              background: 'rgba(76, 76, 252, 0.12)',
-              color: '#4C4CFC',
-              '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-            }}
           >
             Cancel
-          </Button>
+          </ButtonSecondaryWrapper>
         </div>
       </Box>
     </Modal>

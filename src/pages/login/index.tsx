@@ -14,7 +14,7 @@ import {
   FormHelperText,
   Button,
 } from '@mui/material'
-import { styled, useTheme } from '@mui/material/styles'
+import { styled } from '@mui/material/styles'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 // ** Third Party Imports
@@ -28,7 +28,7 @@ import BlankLayout from '@/layouts/BlankLayout'
 import { useAuth } from '@/hooks/useAuth'
 
 // ** Styled Components
-const AuthIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
+const AuthIllustrationWrapper = styled(Box)<BoxProps>(() => ({
   width: '100%',
   maxWidth: 406,
   position: 'relative',
@@ -54,7 +54,6 @@ const LoginPage = () => {
 
   // ** Hooks
   const auth = useAuth()
-  const theme = useTheme()
 
   const {
     control,

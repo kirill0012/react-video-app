@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from '@mui/material'
+import { Button, ButtonProps, Paper, styled, Typography } from '@mui/material'
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined'
 
 import { IdeaItem } from '@/services/ideas'
@@ -8,6 +8,18 @@ type Props = {
   onConfirm: (idea: IdeaItem) => void
   onRegenerate: () => void
 }
+
+// ** Styled Components
+const ButtonSecondaryWrapper = styled(Button)<ButtonProps>(() => ({
+  borderRadius: '8px',
+  height: '48px',
+  textTransform: 'none',
+  fontSize: '18px',
+  fontWeight: '400',
+  background: 'rgba(76, 76, 252, 0.12)',
+  color: '#4C4CFC',
+  '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
+}))
 
 const IdeaConfirmation = (props: Props) => {
   const { idea } = props
@@ -63,25 +75,15 @@ const IdeaConfirmation = (props: Props) => {
       >
         Confirm
       </Button>
-      <Button
+      <ButtonSecondaryWrapper
         size="large"
         type="submit"
         variant="contained"
         startIcon={<CachedOutlinedIcon />}
         onClick={props.onRegenerate}
-        sx={{
-          borderRadius: '8px',
-          height: '48px',
-          textTransform: 'none',
-          fontSize: '18px',
-          fontWeight: '400',
-          background: 'rgba(76, 76, 252, 0.12)',
-          color: '#4C4CFC',
-          '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-        }}
       >
         Re-generate
-      </Button>
+      </ButtonSecondaryWrapper>
     </Paper>
   )
 }

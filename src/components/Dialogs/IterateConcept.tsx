@@ -5,21 +5,19 @@ import * as yup from 'yup'
 import {
   Box,
   Button,
+  ButtonProps,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
-  IconContainerProps,
   Modal,
-  Rating,
   styled,
   TextField,
   Typography,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
-import { ConceptsAPI, VideoItem } from '@/services/concepts'
-import { useState } from 'react'
+import { VideoItem } from '@/services/concepts'
 import { subjects, removeElements } from '@/constants/iteration'
 
 type Props = {
@@ -40,6 +38,18 @@ const style = {
   boxShadow: 24,
   p: '24px',
 }
+
+// ** Styled Components
+const ButtonSecondaryWrapper = styled(Button)<ButtonProps>(() => ({
+  borderRadius: '8px',
+  height: '48px',
+  textTransform: 'none',
+  fontSize: '18px',
+  fontWeight: '400',
+  background: 'rgba(76, 76, 252, 0.12)',
+  color: '#4C4CFC',
+  '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
+}))
 
 const defaultValues: IterateFormData = {
   subject: [],
@@ -293,25 +303,15 @@ const IterateConceptComponent = (props: Props) => {
             >
               Submit
             </Button>
-            <Button
+            <ButtonSecondaryWrapper
               fullWidth
               size="large"
               type="submit"
               variant="contained"
               onClick={onClose}
-              sx={{
-                borderRadius: '8px',
-                height: '48px',
-                textTransform: 'none',
-                fontSize: '18px',
-                fontWeight: '400',
-                background: 'rgba(76, 76, 252, 0.12)',
-                color: '#4C4CFC',
-                '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-              }}
             >
               Cancel
-            </Button>
+            </ButtonSecondaryWrapper>
           </div>
         </Box>
       </form>

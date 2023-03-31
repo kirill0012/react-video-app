@@ -28,7 +28,7 @@ const MainContentWrapper = styled(Box)<BoxProps>({
   flexDirection: 'column',
 })
 
-const ContentWrapper = styled('main')(({ theme }) => ({
+const ContentWrapper = styled('main')(() => ({
   flexGrow: 1,
   width: '100%',
   padding: '10px',
@@ -42,7 +42,7 @@ const UserLayout = (props: Props) => {
   const verticalLayoutProps: VerticalLayoutProps = {
     navMenu: {},
     appBar: {
-      content: (props) => <UserAppBar />,
+      content: () => <UserAppBar />,
     },
   }
 

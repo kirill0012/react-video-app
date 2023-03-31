@@ -42,7 +42,7 @@ export const ConceptsAPI = {
     return Promise.resolve(response.data)
   },
   cancelGeneration: async (id: number): Promise<boolean> => {
-    const response = await request
+    await request
       .request<ConceptItem>({
         url: endpoints.conceptCancelGenerationEndpoint,
         method: 'POST',
@@ -74,7 +74,7 @@ export const ConceptsAPI = {
     transcript: string,
     remove: Array<number>
   ): Promise<void> => {
-    const response = await request
+    await request
       .request<ConceptItem>({
         url: endpoints.conceptIterateEndpoint,
         method: 'POST',

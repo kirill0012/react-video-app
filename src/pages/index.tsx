@@ -5,15 +5,15 @@ import axios from 'axios'
 
 import { useAuth } from '@/hooks/useAuth'
 import { ConceptItem, ConceptsAPI } from '@/services/concepts'
-import ConceptRequest, { ConceptFormData } from '@/components/ConceptRequest'
+import ConceptRequest, { ConceptFormData } from '@/components/Concept/Request'
 import MyProject from '@/components/MyProject'
 import endpoints from '@/constants/endpoints'
-import ConceptIdeaComponent from '@/components/ConceptIdea'
+import ConceptIdeaComponent from '@/components/Concept/Idea'
 import ConceptsList from '@/components/ConceptsList'
 import { GetServerSideProps } from 'next/types'
 import { IdeaItem, IdeasAPI } from '@/services/ideas'
 import Head from 'next/head'
-import { IterateFormData } from '@/components/IterateConcept'
+import { IterateFormData } from '@/components/Dialogs/IterateConcept'
 
 type Props = {
   profile: {

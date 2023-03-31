@@ -3,11 +3,11 @@ import TabContext from '@mui/lab/TabContext'
 import TabPanel from '@mui/lab/TabPanel'
 
 import { ConceptItem, VideoItem } from '@/services/concepts'
-import ConceptGenerationComponent from './ConceptGeneration'
+import ConceptGenerationComponent from './Generation'
 import React from 'react'
-import VideoViewComponent from './VideoView'
-import RateQualityComponent from './RateQuality'
-import IterateConceptComponent, { IterateFormData } from './IterateConcept'
+import VideoViewComponent from '@/components/Dialogs/VideoView'
+import RateQualityComponent from '@/components/Dialogs/RateQuality'
+import IterateConceptComponent, { IterateFormData } from '@/components/Dialogs/IterateConcept'
 
 type Props = {
   index: number

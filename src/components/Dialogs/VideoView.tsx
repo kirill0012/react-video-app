@@ -1,6 +1,6 @@
 import ReactPlayer from 'react-player'
 import Image from 'next/image'
-import { Box, Button, Link, Modal, Typography } from '@mui/material'
+import { Box, Button, ButtonProps, Link, Modal, styled, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import EditIcon from '@mui/icons-material/Edit'
 import FavoriteIcon from '@mui/icons-material/Favorite'
@@ -28,6 +28,20 @@ const style = {
   boxShadow: 24,
   p: '24px',
 }
+
+// ** Styled Components
+const ButtonSecondaryWrapper = styled(Button)<
+  ButtonProps & { component?: any; download?: boolean }
+>(() => ({
+  borderRadius: '8px',
+  height: '48px',
+  textTransform: 'none',
+  fontSize: '18px',
+  fontWeight: '400',
+  background: 'rgba(76, 76, 252, 0.12)',
+  color: '#4C4CFC',
+  '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
+}))
 
 const VideoViewComponent = (props: Props) => {
   const { video } = props
@@ -75,48 +89,28 @@ const VideoViewComponent = (props: Props) => {
           }
         />
         <div style={{ display: 'flex', gap: '16px' }}>
-          <Button
+          <ButtonSecondaryWrapper
             fullWidth
             size="large"
             type="submit"
             variant="contained"
             disabled={props.iterationDisabled}
             onClick={() => props.onIterate(video)}
-            sx={{
-              borderRadius: '8px',
-              height: '48px',
-              textTransform: 'none',
-              fontSize: '18px',
-              fontWeight: '400',
-              background: 'rgba(76, 76, 252, 0.12)',
-              color: '#4C4CFC',
-              '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-            }}
           >
             <EditIcon sx={{ mr: '10px' }} />
             Iterate
-          </Button>
-          <Button
+          </ButtonSecondaryWrapper>
+          <ButtonSecondaryWrapper
             fullWidth
             size="large"
             type="submit"
             variant="contained"
             onClick={() => props.onRateQuality(video)}
-            sx={{
-              borderRadius: '8px',
-              height: '48px',
-              textTransform: 'none',
-              fontSize: '18px',
-              fontWeight: '400',
-              background: 'rgba(76, 76, 252, 0.12)',
-              color: '#4C4CFC',
-              '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-            }}
           >
             <FavoriteIcon sx={{ mr: '10px' }} />
             Rate Quality
-          </Button>
-          <Button
+          </ButtonSecondaryWrapper>
+          <ButtonSecondaryWrapper
             component={Link}
             href={video.src}
             download
@@ -124,20 +118,10 @@ const VideoViewComponent = (props: Props) => {
             size="large"
             type="submit"
             variant="contained"
-            sx={{
-              borderRadius: '8px',
-              height: '48px',
-              textTransform: 'none',
-              fontSize: '18px',
-              fontWeight: '400',
-              background: 'rgba(76, 76, 252, 0.12)',
-              color: '#4C4CFC',
-              '&:hover': { background: 'rgba(76, 76, 252, 0.22)' },
-            }}
           >
             <DownloadIcon sx={{ mr: '10px' }} />
             Download
-          </Button>
+          </ButtonSecondaryWrapper>
         </div>
       </Box>
     </Modal>

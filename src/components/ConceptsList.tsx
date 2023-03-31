@@ -1,6 +1,6 @@
 import { ConceptItem } from '@/services/concepts'
-import ConceptItemComponent from './ConceptItem'
-import { IterateFormData } from './IterateConcept'
+import ConceptItemComponent from '@/components/Concept/Item'
+import { IterateFormData } from './Dialogs/IterateConcept'
 
 type Props = {
   concepts: ConceptItem[]
