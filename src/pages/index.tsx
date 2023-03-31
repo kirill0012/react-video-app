@@ -1,18 +1,19 @@
 import { useState } from 'react'
-import { Grid, Typography } from '@mui/material'
+import Head from 'next/head'
+import { GetServerSideProps } from 'next/types'
 import jsHttpCookie from 'cookie'
 import axios from 'axios'
 
+import { Grid, Typography } from '@mui/material'
+
 import { useAuth } from '@/hooks/useAuth'
 import { ConceptItem, ConceptsAPI } from '@/services/concepts'
+import { IdeaItem, IdeasAPI } from '@/services/ideas'
 import ConceptRequest, { ConceptFormData } from '@/components/Concept/Request'
 import MyProject from '@/components/MyProject'
 import endpoints from '@/constants/endpoints'
 import ConceptIdeaComponent from '@/components/Concept/Idea'
 import ConceptsList from '@/components/ConceptsList'
-import { GetServerSideProps } from 'next/types'
-import { IdeaItem, IdeasAPI } from '@/services/ideas'
-import Head from 'next/head'
 import { IterateFormData } from '@/components/Dialogs/IterateConcept'
 
 type Props = {
