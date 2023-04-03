@@ -63,7 +63,6 @@ function Home(props: Props) {
   const onGenerateConcept = async (data: ConceptFormData) => {
     await IdeasAPI.generateIdea()
       .then((idea) => {
-        console.log(idea)
         setConceptIdea({
           idea,
           request: data,
@@ -80,7 +79,6 @@ function Home(props: Props) {
         setConcepts((state) => {
           return [concept, ...state]
         })
-        console.log(concept)
         // push generation step
       })
       .finally(() => {
@@ -97,22 +95,41 @@ function Home(props: Props) {
     })
   }
   const onCancelGeneration = async (id: number) => {
-    await ConceptsAPI.cancelGeneration(id)
-      .then(() => {
-        return ConceptsAPI.listConcepts()
+    await ConceptsAPI.cancelGeneration(id).then(() => {
+      setConcepts((state) => {
+        const nState = [
+          ...state.map((concept) => {
+            return {
+              id: concept.id,
+              generations: concept.generations.filter((gen) => gen.id != id),
+            }
+          }),
+        ]
+        return nState.filter((concept) => concept.generations.length > 0)
       })
-      .then((concepts) => {
-        setConcepts(concepts)
-      })
+    })
   }
   const onIterateVideo = async (videoId: number, data: IterateFormData) => {
-    await ConceptsAPI.iterateConcept(videoId, data.subject, data.transcript, data.remove)
-      .then(() => {
-        return ConceptsAPI.listConcepts()
-      })
-      .then((concepts) => {
-        setConcepts(concepts)
-      })
+    await ConceptsAPI.iterateConcept(videoId, data.subject, data.transcript, data.remove).then(
+      (generation) => {
+        setConcepts((state) => {
+          return [
+            ...state.map((concept) => {
+              const found = concept.generations.find(
+                (gen) => gen.videos.findIndex((v) => v.id == videoId) >= 0
+              )
+              if (found) {
+                return {
+                  id: concept.id,
+                  generations: concept.generations.concat(generation),
+                }
+              }
+              return concept
+            }),
+          ]
+        })
+      }
+    )
   }
 
   return (

@@ -73,9 +73,9 @@ export const ConceptsAPI = {
     subject: Array<number>,
     transcript: string,
     remove: Array<number>
-  ): Promise<void> => {
-    await request
-      .request<ConceptItem>({
+  ): Promise<Generation> => {
+    const response = await request
+      .request<Generation>({
         url: endpoints.conceptIterateEndpoint,
         method: 'POST',
         data: {
@@ -89,6 +89,6 @@ export const ConceptsAPI = {
         return Promise.reject(false)
       })
 
-    return Promise.resolve()
+    return Promise.resolve(response.data)
   },
 }

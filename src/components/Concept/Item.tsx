@@ -4,7 +4,7 @@ import TabPanel from '@mui/lab/TabPanel'
 
 import { ConceptItem, VideoItem } from '@/services/concepts'
 import ConceptGenerationComponent from './Generation'
-import React from 'react'
+import React, { useEffect } from 'react'
 import VideoViewComponent from '@/components/Dialogs/VideoView'
 import RateQualityComponent from '@/components/Dialogs/RateQuality'
 import IterateConceptComponent, { IterateFormData } from '@/components/Dialogs/IterateConcept'
@@ -25,6 +25,10 @@ const ConceptItemComponent = (props: Props) => {
   const [isRateOpen, setRateOpen] = React.useState<boolean>(false)
   const [isIterateOpen, setIterateOpen] = React.useState<boolean>(false)
   const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(null)
+
+  useEffect(() => {
+    setValue((concept.generations.length - 1).toString())
+  }, [concept.generations])
 
   const handlePlayerClose = () => setPlayerOpen(false)
   const handleRateClose = () => setRateOpen(false)

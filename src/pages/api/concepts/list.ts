@@ -114,22 +114,22 @@ const handler: NextApiHandler = async (req, res) => {
                   },
                 ],
               },
-              {
-                id: 5,
-                inProgress: true,
-                created: new Date(),
-                current: current,
-                eta: eta,
-                ref: 'video_name_version_4',
-                brief: '<Iteration Request Summary>',
-                videos: [
-                  {
-                    id: 6,
-                    image: '/demo/Rectangle 23.png',
-                    name: 'video_name_gen_3',
-                  },
-                ],
-              },
+              // {
+              //   id: 5,
+              //   inProgress: true,
+              //   created: new Date(),
+              //   current: current,
+              //   eta: eta,
+              //   ref: 'video_name_version_4',
+              //   brief: '<Iteration Request Summary>',
+              //   videos: [
+              //     {
+              //       id: 6,
+              //       image: '/demo/Rectangle 23.png',
+              //       name: 'video_name_gen_3',
+              //     },
+              //   ],
+              // },
             ],
           },
         ])
