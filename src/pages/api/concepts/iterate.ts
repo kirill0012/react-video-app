@@ -19,16 +19,15 @@ const handler: NextApiHandler = async (req, res) => {
 
         console.log({ subject, transcript, remove })
 
-        const current = new Date()
-        current.setTime(current.getTime() + 1 * 60 * 60 * 1000)
+        const created = new Date()
+        created.setTime(created.getTime() - 1 * 60 * 60 * 1000 - 10 * 1000)
         const eta = new Date()
         eta.setTime(eta.getTime() + 2 * 60 * 60 * 1000)
 
         res.status(200).json({
           id: 5,
           inProgress: true,
-          created: new Date(),
-          current: current,
+          created: created,
           eta: eta,
           ref: 'video_name_version_4',
           brief: '<Iteration Request Summary>',

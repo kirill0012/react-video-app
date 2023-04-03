@@ -16,14 +16,14 @@ const handler: NextApiHandler = async (req, res) => {
 
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
         const eta = new Date()
-        eta.setTime(eta.getTime() + 2 * 60 * 60 * 1000)
-        const current = new Date()
-        current.setTime(current.getTime() + 1 * 60 * 60 * 1000)
+        eta.setTime(eta.getTime() + 1 * 60 * 60 * 1000)
 
         const created = new Date()
         created.setTime(created.getTime() - 24 * 60 * 60 * 1000 - 10 * 1000)
         const created2 = new Date()
         created2.setTime(created2.getTime() - 2 * 24 * 60 * 60 * 1000 - 10 * 1000)
+        const created3 = new Date()
+        created3.setTime(created3.getTime() - 1 * 60 * 60 * 1000 - 10 * 1000)
         res.status(200).json([
           {
             id: 2,
@@ -114,22 +114,21 @@ const handler: NextApiHandler = async (req, res) => {
                   },
                 ],
               },
-              // {
-              //   id: 5,
-              //   inProgress: true,
-              //   created: new Date(),
-              //   current: current,
-              //   eta: eta,
-              //   ref: 'video_name_version_4',
-              //   brief: '<Iteration Request Summary>',
-              //   videos: [
-              //     {
-              //       id: 6,
-              //       image: '/demo/Rectangle 23.png',
-              //       name: 'video_name_gen_3',
-              //     },
-              //   ],
-              // },
+              {
+                id: 5,
+                inProgress: true,
+                created: created3,
+                eta: eta,
+                ref: 'video_name_version_4',
+                brief: '<Iteration Request Summary>',
+                videos: [
+                  {
+                    id: 6,
+                    image: '/demo/Rectangle 23.png',
+                    name: 'video_name_gen_3',
+                  },
+                ],
+              },
             ],
           },
         ])

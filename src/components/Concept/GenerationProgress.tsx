@@ -1,6 +1,7 @@
 import { Button, LinearProgress, Typography } from '@mui/material'
 import Image from 'next/image'
 import { Generation } from '@/services/concepts'
+import { useEffect, useState } from 'react'
 
 type Props = {
   genIndex: number
@@ -11,21 +12,31 @@ type Props = {
 const ConceptGenerationProgressComponent = (props: Props) => {
   const { genIndex, generation, onCancel } = props
 
+  const [current, setCurrent] = useState(new Date())
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent(new Date())
+    }, 1000)
+    return () => clearInterval(id)
+  }, [current])
+
   let eta_string = ''
   let eta_value = 0
 
-  if (generation.created && generation.current && generation.eta) {
+  if (generation.created && generation.eta) {
     const created = new Date(generation.created)
-    const current = new Date(generation.current)
     const eta = new Date(generation.eta)
 
-    const total_time = eta.getTime() - created.getTime()
-    const passed_time = current.getTime() - created.getTime()
-    const left_minutes = (eta.getTime() - current.getTime()) / (60 * 1000)
+    if (current < eta) {
+      const total_time = eta.getTime() - created.getTime()
+      const passed_time = current.getTime() - created.getTime()
+      const left_minutes = Math.round((eta.getTime() - current.getTime()) / (60 * 1000))
 
-    eta_value = Math.round((passed_time / total_time) * 100)
-    eta_string =
-      left_minutes > 99 ? `${Math.round(left_minutes / 60)} Hours` : `${left_minutes} mins`
+      eta_value = Math.round((passed_time / total_time) * 100)
+      eta_string =
+        left_minutes > 99 ? `${Math.round(left_minutes / 60)} Hours` : `${left_minutes} mins`
+    }
   }
 
   if (genIndex == 0) {

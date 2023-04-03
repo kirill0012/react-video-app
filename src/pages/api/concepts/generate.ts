@@ -16,9 +16,10 @@ const handler: NextApiHandler = async (req, res) => {
 
       if (token == 'BJXPXtfJGEdBFSPttXwhgQFOwwJBHMhbDsyghhCRocNBoGoGPbkqfvlvYglb') {
         const eta = new Date()
-        eta.setTime(eta.getTime() + 12 * 60 * 60 * 1000)
-        const current = new Date()
-        current.setTime(current.getTime() + 1 * 60 * 60 * 1000)
+        eta.setTime(eta.getTime() + 11 * 60 * 60 * 1000)
+
+        const created = new Date()
+        created.setTime(created.getTime() - 1 * 60 * 60 * 1000)
 
         res.status(200).json({
           id: 1,
@@ -26,8 +27,7 @@ const handler: NextApiHandler = async (req, res) => {
             {
               id: 1,
               inProgress: true,
-              created: new Date(),
-              current: current,
+              created: created,
               eta: eta,
             },
           ],

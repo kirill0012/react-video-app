@@ -9,7 +9,7 @@ export type Generation = {
   inProgress: boolean
   created: Date | string
   eta?: Date | string
-  current?: Date | string
+  // current?: Date | string
   videos: Array<VideoItem>
 }
 
