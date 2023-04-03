@@ -25,7 +25,7 @@ const handler: NextApiHandler = async (req, res) => {
         eta.setTime(eta.getTime() + 2 * 60 * 60 * 1000)
 
         res.status(200).json({
-          id: 5,
+          id: 6,
           inProgress: true,
           created: created,
           eta: eta,
@@ -33,7 +33,7 @@ const handler: NextApiHandler = async (req, res) => {
           brief: '<Iteration Request Summary>',
           videos: [
             {
-              id: 6,
+              id: 11,
               image: '/demo/Rectangle 23.png',
               name: 'video_name_gen_3',
             },

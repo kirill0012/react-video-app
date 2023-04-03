@@ -74,25 +74,25 @@ const handler: NextApiHandler = async (req, res) => {
                   'The video will show a live-action man that his live-action female girlfriend attacking his village successfully. The male is getting angry and try to attack his girlfriend village getting block and loses. The live-action female is doing a victory dance.',
                 videos: [
                   {
-                    id: 1,
+                    id: 5,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_1',
                   },
                   {
-                    id: 2,
+                    id: 6,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
-                    id: 3,
+                    id: 7,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_2',
                   },
                   {
-                    id: 4,
+                    id: 8,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 22.png',
                     name: 'video_name_version_3',
@@ -107,7 +107,7 @@ const handler: NextApiHandler = async (req, res) => {
                 brief: '<Iteration Request Summary>',
                 videos: [
                   {
-                    id: 5,
+                    id: 9,
                     src: '/demo/file_example_MP4_640_3MG.mp4',
                     image: '/demo/Rectangle 23.png',
                     name: 'video_name_gen_2',
@@ -123,7 +123,7 @@ const handler: NextApiHandler = async (req, res) => {
                 brief: '<Iteration Request Summary>',
                 videos: [
                   {
-                    id: 6,
+                    id: 10,
                     image: '/demo/Rectangle 23.png',
                     name: 'video_name_gen_3',
                   },
