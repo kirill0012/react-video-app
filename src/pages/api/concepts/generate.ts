@@ -29,6 +29,7 @@ const handler: NextApiHandler = async (req, res) => {
               inProgress: true,
               created: created,
               eta: eta,
+              videos: [],
             },
           ],
         })
