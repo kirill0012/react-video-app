@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from '@mui/material'
+import { Alert, Button, Paper, Snackbar, Typography } from '@mui/material'
 import TabContext from '@mui/lab/TabContext'
 import TabPanel from '@mui/lab/TabPanel'
 
@@ -25,14 +25,28 @@ const ConceptItemComponent = (props: Props) => {
   const [isRateOpen, setRateOpen] = React.useState<boolean>(false)
   const [isIterateOpen, setIterateOpen] = React.useState<boolean>(false)
   const [selectedVideo, setSelectedVideo] = React.useState<VideoItem | null>(null)
+  const [snackbarOpen, setSnackbarOpen] = React.useState(false)
 
   useEffect(() => {
     setValue((concept.generations.length - 1).toString())
   }, [concept.generations])
 
   const handlePlayerClose = () => setPlayerOpen(false)
-  const handleRateClose = () => setRateOpen(false)
+  const handleRateClose = (isRatingSent: boolean) => {
+    setRateOpen(false)
+    if (isRatingSent) {
+      setSnackbarOpen(true)
+    }
+  }
   const handleIterateClose = () => setIterateOpen(false)
+
+  const handleSnackbarClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setSnackbarOpen(false)
+  }
 
   const openVideoPlayer = (video: VideoItem) => {
     setSelectedVideo(video)
@@ -147,6 +161,25 @@ const ConceptItemComponent = (props: Props) => {
         onClose={handleIterateClose}
         onIterateVideo={onIterateVideo}
       />
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          sx={{
+            width: '100%',
+            backgroundColor: 'rgb(46, 125, 50)',
+            color: 'rgb(255, 255, 255)',
+            '& .MuiAlert-icon': { color: 'rgb(255, 255, 255)' },
+          }}
+          onClose={handleSnackbarClose}
+        >
+          Your rating have been sent!
+        </Alert>
+      </Snackbar>
     </Paper>
   )
 }

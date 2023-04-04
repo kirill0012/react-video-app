@@ -207,7 +207,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           },
         }
       } catch (error) {
-        console.log(error)
+        // console.log(error)
         // invalid token
       }
     }

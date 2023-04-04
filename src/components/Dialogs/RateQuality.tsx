@@ -17,7 +17,7 @@ import { VideosAPI } from '@/services/videos'
 type Props = {
   video: VideoItem | null
   open: boolean
-  onClose: () => void
+  onClose: (ratingSent: boolean) => void
 }
 
 const style = {
@@ -141,18 +141,18 @@ const RateQualityComponent = (props: Props) => {
 
   const onSubmit = () => {
     VideosAPI.rate(video.id, selected)
-    onClose()
+    onClose(true)
   }
 
-  const onClose = () => {
+  const onClose = (ratingSent = false) => {
     setSelected(3)
-    props.onClose()
+    props.onClose(ratingSent)
   }
 
   return (
     <Modal
       open={props.open}
-      onClose={onClose}
+      onClose={() => onClose(false)}
       aria-labelledby="parent-modal-title"
       aria-describedby="parent-modal-description"
     >
@@ -161,7 +161,7 @@ const RateQualityComponent = (props: Props) => {
           <Typography sx={{ fontSize: '20px', fontWeight: 700, flexGrow: 1 }}>
             Quality feedback
           </Typography>
-          <CloseIcon sx={{ cursor: 'pointer' }} onClick={onClose} />
+          <CloseIcon sx={{ cursor: 'pointer' }} onClick={() => onClose(false)} />
         </div>
         <Typography sx={{ fontSize: '16px', fontWeight: 400, pb: '24px' }}>
           How satisfied are you with this concept?
@@ -202,7 +202,7 @@ const RateQualityComponent = (props: Props) => {
             size="large"
             type="submit"
             variant="contained"
-            onClick={onClose}
+            onClick={() => onClose(false)}
           >
             Cancel
           </ButtonSecondaryWrapper>
