@@ -1,38 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React video app
 
-## Getting Started
+### Project directory layout
 
-First, run the development server:
+    .
+    ├── public                  # Folder for any public static files
+    ├── src                     # App source files
+    │   ├── components          
+    │   │   ├── Concept/*       # Components related to Concepts representation, Generations, Idea
+    │   │   ├── Dialogs/*       # Modal dialogs: Iterate, Rate, Video display
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+    │   ├── constants           
+    │   │   ├── endpoints.ts    # List of the API endpoints urls
+    │   │   ├── iteration.ts    # List of the Iteration actions
+
+    │   ├── layouts           
+    │   │   ├── BlankLayout.tsx # Page layout for guest full-page forms (Login, Forgot password, etc)
+    │   │   ├── UserLayout.tsx  # Page layout for logged in users with top bar
+
+    │   ├── pages           
+    │   │   ├── api/*           # Folder contains mock API
+    │   │   ├── login/index.ts  # Login page
+    │   │   ├── index.ts        # Main page of the app
+
+    │   ├── services            # Service layer for API calls
+    │   │   ├── auth.ts         # Auth (login/logout)
+    │   │   ├── concepts.ts     # Concepts (generate, cancel, list, iterate)
+    │   │   ├── ideas.ts        # Ideas generation
+    │   │   ├── videos.ts       # Videos rate
+
+
+## Datatypes
+
+> All service files contains TypeScript typings for expected API responses
+
+### User info
+```
+export type UserDataType = {
+  id: number
+  name: string
+  avatar?: string | null
+}
+
+export type Profile = {
+  project: {
+    title: string
+    avatar: string | null
+  } | null
+  limits: {
+    concept: number
+    iterations: number
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Concepts items
+```
+export type ConceptItem = {
+  id: number
+  generations: Array<Generation>
+}
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+export type Generation = {
+  id: number
+  ref: string
+  brief: string
+  inProgress: boolean
+  created: Date | string
+  eta?: Date | string
+  videos: Array<VideoItem>
+}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+export type VideoItem = {
+  id: number
+  src: string
+  image: string
+  name: string
+}
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Idea item
+```
+export type IdeaItem = {
+  id: number
+  title: string
+  description: string
+} | null
+```
