@@ -29,6 +29,19 @@
     │   │   ├── videos.ts       # Videos rate
 
 
+### Components hierarchy
+    ├── index.tsx                  
+    │   ├── MyProject                        # Project header
+    │   ├── ConceptIdeaComponent             # Idea generation
+    |   ├── ConceptsList                     # General component for concepts
+    |   |   ├── ConceptItemComponent         # Representation of Concept item
+    |   |   |   ├── ConceptGenerationComponent
+    |   |   |   ├── VideoViewComponent
+    |   |   |   ├── RateQualityComponent
+    |   |   |   ├── IterateConceptComponent
+    |   ├── ConceptRequest                   # Form for concept request
+
+
 ## Datatypes
 
 > All service files contains TypeScript typings for expected API responses
