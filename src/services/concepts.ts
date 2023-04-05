@@ -1,6 +1,7 @@
 import endpoints from '@/constants/endpoints'
 import request from '@/lib/api/request'
 import { IdeaItem } from './ideas'
+import axios from 'axios'
 
 export type Generation = {
   id: number
@@ -67,6 +68,16 @@ export const ConceptsAPI = {
       })
 
     return Promise.resolve(response.data)
+  },
+  listConceptsServerSide: async (cookie?: string): Promise<ConceptItem[]> => {
+    return axios
+      .get<ConceptItem[]>(`${process.env.NEXT_PUBLIC_API_URL}${endpoints.conceptsListEndpoint}`, {
+        headers: cookie ? { cookie: cookie } : undefined,
+        withCredentials: true,
+      })
+      .then((response) => {
+        return response.data
+      })
   },
   iterateConcept: async (
     videoId: number,

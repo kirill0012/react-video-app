@@ -1,6 +1,28 @@
 import endpoints from '@/constants/endpoints'
-import { LoginParams, UserDataType } from '@/context/types'
 import request from '@/lib/api/request'
+import axios from 'axios'
+
+export type UserDataType = {
+  id: number
+  name: string
+  avatar?: string | null
+}
+
+export type LoginParams = {
+  email: string
+  password: string
+}
+
+export type Profile = {
+  project: {
+    title: string
+    avatar: string | null
+  } | null
+  limits: {
+    concept: number
+    iterations: number
+  }
+}
 
 export const AuthAPI = {
   login: async (params: LoginParams): Promise<UserDataType> => {
@@ -15,6 +37,16 @@ export const AuthAPI = {
       })
 
     return response.data
+  },
+  profileServerSide: async (cookie?: string): Promise<Profile> => {
+    return axios
+      .get<Profile>(`${process.env.NEXT_PUBLIC_API_URL}${endpoints.profileEndpoint}`, {
+        headers: cookie ? { cookie: cookie } : undefined,
+        withCredentials: true,
+      })
+      .then((response) => {
+        return response.data
+      })
   },
   me: async () => {
     const response = await request

@@ -5,8 +5,8 @@ import { createContext, useState, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 
 // ** Types
-import { AuthValuesType, LoginParams, ErrCallbackType, UserDataType } from './types'
-import { AuthAPI } from '@/services/auth'
+import { AuthValuesType, ErrCallbackType } from './types'
+import { AuthAPI, LoginParams, UserDataType } from '@/services/auth'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {

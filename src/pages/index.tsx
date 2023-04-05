@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next/types'
 import jsHttpCookie from 'cookie'
-import axios from 'axios'
 
 import { Grid, Typography } from '@mui/material'
 
@@ -11,22 +10,13 @@ import { ConceptItem, ConceptsAPI } from '@/services/concepts'
 import { IdeaItem, IdeasAPI } from '@/services/ideas'
 import ConceptRequest, { ConceptFormData } from '@/components/Concept/Request'
 import MyProject from '@/components/MyProject'
-import endpoints from '@/constants/endpoints'
 import ConceptIdeaComponent from '@/components/Concept/Idea'
 import ConceptsList from '@/components/ConceptsList'
 import { IterateFormData } from '@/components/Dialogs/IterateConcept'
+import { AuthAPI, Profile } from '@/services/auth'
 
 type Props = {
-  profile: {
-    project: {
-      title: string
-      avatar: string | null
-    } | null
-    limits: {
-      concept: number
-      iterations: number
-    }
-  }
+  profile: Profile
   concepts: Array<ConceptItem>
 }
 
@@ -178,27 +168,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     if (token) {
       try {
-        const profile = await axios
-          .get(`${process.env.NEXT_PUBLIC_API_URL}${endpoints.profileEndpoint}`, {
-            headers: context.req.headers.cookie
-              ? { cookie: context.req.headers.cookie }
-              : undefined,
-            withCredentials: true,
-          })
-          .then((response) => {
-            return response.data
-          })
+        const profile = await AuthAPI.profileServerSide(context.req.headers.cookie)
 
-        const concepts = await axios
-          .get(`${process.env.NEXT_PUBLIC_API_URL}${endpoints.conceptsListEndpoint}`, {
-            headers: context.req.headers.cookie
-              ? { cookie: context.req.headers.cookie }
-              : undefined,
-            withCredentials: true,
-          })
-          .then((response) => {
-            return response.data
-          })
+        const concepts = await ConceptsAPI.listConceptsServerSide(context.req.headers.cookie)
 
         return {
           props: {

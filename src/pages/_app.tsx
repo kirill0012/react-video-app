@@ -5,6 +5,7 @@ import App, { AppContext } from 'next/app'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import jsHttpCookie from 'cookie'
+import axios from 'axios'
 
 import createEmotionCache from '../utils/createEmotionCache'
 import lightTheme from '../styles/theme/lightTheme'
@@ -14,9 +15,8 @@ import UserLayout from '@/layouts/UserLayout'
 import '@/styles/globals.css'
 
 import { AuthProvider } from '@/context/AuthContext'
-import axios from 'axios'
-import { UserDataType } from '@/context/types'
 import endpoints from '@/constants/endpoints'
+import { UserDataType } from '@/services/auth'
 
 const clientSideEmotionCache = createEmotionCache()
 

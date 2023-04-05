@@ -1,15 +1,6 @@
+import { LoginParams, UserDataType } from '@/services/auth'
+
 export type ErrCallbackType = (err: { [key: string]: string }) => void
-
-export type LoginParams = {
-  email: string
-  password: string
-}
-
-export type UserDataType = {
-  id: number
-  name: string
-  avatar?: string | null
-}
 
 export type AuthValuesType = {
   loading: boolean
