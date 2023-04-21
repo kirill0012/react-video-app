@@ -85,7 +85,10 @@ const ConceptGenerationProgressComponent = (props: Props) => {
               <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#81848F' }}>
                 ⏳ ETA
               </Typography>
-              <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#272930', pl: '4px' }}>
+              <Typography
+                sx={{ fontSize: '14px', fontWeight: '500', color: '#272930', pl: '4px' }}
+                suppressHydrationWarning={true}
+              >
                 ≈ {eta_string}
               </Typography>
               <Typography
